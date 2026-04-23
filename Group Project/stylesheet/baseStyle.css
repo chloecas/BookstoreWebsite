@@ -1,0 +1,135 @@
+header {
+    height: 220px;
+    width: 100%;
+    background-image: url("../img/header.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+}
+
+body {
+    background-image: url("../img/background.png");
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+nav {
+	background-color: darkolivegreen;
+	height: 20px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-evenly; 
+}
+
+nav ul li {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    list-style: none;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav li a:hover, nav li a.current {
+	color: #000000;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+}
+
+header button {
+    transition: transform .7s ease-in-out;
+
+    display:flex;
+    padding: 20px;
+    
+}
+
+header button:hover {
+    transform: rotate(360deg);
+}
+
+.icon {
+    width: 70px;
+    height: 70px;
+}
+
+figcaption {
+    text-align: center;
+    padding-left: 10px;
+    font-size:90%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight:bold;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap:20px;
+}
+
+footer {
+    padding: 60px 0;
+    width:100%;
+    background-color: darkolivegreen;
+}
+
+footer nav {
+    width: 100%;
+}
+
+#footerList, .contact {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    text-align: center;
+}
+
+#footerList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0;
+    margin: 0;
+}
+
+.socials {
+    display: flex;
+    gap:8px;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.contact {
+    margin: 0;
+    line-height: 1.4;
+    max-width: 250px;
+}
+
+.socials label {
+    margin-right: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:white;
+}
+
+
+

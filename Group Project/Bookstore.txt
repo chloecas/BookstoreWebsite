@@ -1,0 +1,13 @@
+Bookstore
+- Chloe : Product listing/category, product detail, order confirmation (3, 4, 7)
+- Laura: Home Page, About, Error (2, 9, 10)
+- Emelie: Login, Shopping Cart, Checkout, User Account (1, 5, 6, 8)
+
+Base CSS sheet
+
+JSON files- products + categories
+Laura: reviews
+
+- search function (autocomplete)
+
+Color Schemes: plants and flowers, green/brown/white/blue
