@@ -1,0 +1,22 @@
+[
+    {"id":"1", "reviews": [
+        {"username":"Jimmy", "comment":"I read this group a while back in grade 9 English class, and boy am I happy the teacher chose it. There's few books out there that are able to so deeply entangle you in a web of emotion and morality, taking you into the life of someone truly a victim of society back in the times of unapologetic breachment of your rights and humanity."},
+        {"username":"Terry_Jones", "comment":"This book makes you think. While at face value, the book may seem overly moralistic, weaved into the story are many intricate ideas that one has to think about in order to understand. "},
+        {"username":"wrulesCools", "comment":"It has almost been 20 years since I read this book (from high school). Reading this story still confirms it is a classic. With Scout, her brother, Jem and Atticus her father who live in a small town in southern Alabama during the Depression."}
+        ]
+    },
+    
+    {"id":"2", "reviews": [
+        {"username":"LLisa2", "comment":"A classic for sure, this book should a book that everyone reads in their lives. Just going into reading the book know that it is a book you are really going to have to think about."},
+        {"username":"book_luvr", "comment":"This book wasn't that bad. However, even though it didn't appeal to my interests, I still enjoyed it. The book is about how the government is watching everyone and controlling their lives through BIG BROTHER. However, this book is a little bit much in terms of lack of privacy, but you never do know if you are being watched, do you?"},
+        {"username":"nyamCat", "comment":"George Orwell writes in an incredibly captivating manor, he is such an amazing story telling with interesting perspective."}
+        ]
+    },
+
+    {"id":"3", "reviews": [
+        {"username":"marina", "comment":"I'm going to see the musical soon and I wanted a concept of the story, plus it is a classic so I had to pick it up! It was actually amazing! If you like classics or you are going to see the musical Id suggest reading it!!"},
+        {"username":"Lindsay K Phillip", "comment":"Brilliant! Better than the movie! Love carrying this book with me everywhere!"},
+        {"username":"deerie98", "comment":"Bought for the nostalgia. Reminds me of the editions we read in school..."}
+
+    ]}
+]
