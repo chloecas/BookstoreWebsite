@@ -26,7 +26,10 @@
     <nav>
         <ul>
             <li><a href="">About</a></li>
-            <li><a href="">Products</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><input type="text" placeholder="Search...">
+                    <button style="border: 1px solid white;" type="button">Enter</button>
+            </li>
         </ul>
     </nav>
 
@@ -51,6 +54,11 @@
             <label style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Maximum Price</label>
             <input type="range" id="priceFilter" min="0" max="50" step="0.5">
             <span id="priceValue"></span>
+            <p></p>
+
+            <label style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Search by Title:</label>
+            <input type="text" placeholder="Search...">
+
         </div>
 
         <div id="productList" style="padding-top: 20px;"></div>

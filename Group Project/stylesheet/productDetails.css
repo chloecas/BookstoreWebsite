@@ -1,0 +1,87 @@
+
+#title, .heading {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration:wavy underline rgb(75, 49, 37) 2px;
+    color:darkolivegreen;
+}
+
+.detailContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:20px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.rating {
+    text-align: left;
+    padding:40px;
+}
+
+#ratingCard {
+    border: 5px darkolivegreen solid;
+    background-color: rgba(164, 189, 157, 0.8);
+    align-content: center;
+    text-align:center;
+    padding-bottom: 20px;
+}
+
+.stars {
+    height: 75px;
+    width:auto;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 10px;
+    border-radius: 6px;
+    text-align: left;
+}
+
+#reviews {
+    margin:10px;
+    display: flex;
+    flex-direction: column;
+    text-align:center;
+    gap:10px;
+    padding: 10px;
+    background-color:rgba(87, 119, 78, 0.4);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.user {
+    font-weight:bold;
+}
+
+.detailsButton {
+    border: 2px solid black;
+    background-color: darkolivegreen;
+    color:white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-left:40px;
+    font-size: 15px;
+}
+
+.productImage {
+    aspect-ratio: 4/5;
+    max-height:500px;
+}
+
+.productDetails {
+    margin:10px;
+    padding-left: 30px;
+    align-items:center;
+}
+
+#prodTitle {
+    padding-left:70px;
+}
+
+#author, #price, #description, #prodTitle {
+     font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+#description {
+    background-color: rgba(164, 189, 157, 0.8);
+}

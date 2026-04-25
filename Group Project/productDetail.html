@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail Page</title>
+    <link href="stylesheet/baseStyle.css" rel="stylesheet" type="text/css">
+    <link href="stylesheet/productDetails.css" rel="stylesheet" type="text/css">
+    <script src="javascript/productDetails.js" defer></script>
+</head>
+<body>
+   <header>
+        <button type="button" id="login">
+            <figure style="margin:0; width: 40%;">
+                <img class="icon" src="img/account.png" alt="Account">
+                <figcaption>Access Account</figcaption>
+            </figure>
+        </button>
+
+        <button type="button" id="cart">
+            <figure style="margin:0; width: 40%;">
+                <img class="icon" src="img/cartBook.png" alt="Checkout">
+                <figcaption>Checkout</figcaption>
+            </figure>
+        </button>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="">About</a></li>
+            <li><a href="products.html">Products</a></li>
+        </ul>
+    </nav>
+
+    <h1 id="title">PRODUCT DETAILS</h1>
+    
+    <div class="detailContainer">
+        
+        <div id="productDetails"></div>
+        
+        <div id="reviewsContainer">
+            <div class="rating">
+                <h2 class="heading">User Rating</h2>
+                <div id="ratingCard"></div>
+            </div>
+            
+            <h2 class="heading">Reviews</h2>
+            <div id="reviews"></div>
+        </div>
+    </div>
+    
+    <button class="detailsButton" type="button"> Checkout</button>
+    <button class="detailsButton" type="button">Add To Cart</button>
+    <p></p>
+   
+    <footer>
+
+   </footer>
+</body>
+</html>

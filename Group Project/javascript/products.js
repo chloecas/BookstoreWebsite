@@ -15,12 +15,17 @@ products.forEach(item => {
     card.classList.add('card');
 
     card.innerHTML = `
+    <a href="../productDetail.html?id=${item.id}">
     <img src="${item.image}" alt="${item.title}" class="cardImg">
+    </a>
     <div class="cardContent">
         <h3>${item.title}</h3>
         <p>${item.author} (${item.release_year})</p>
         <p class="price">$${item.price.toFixed(2)} CAD</p>
+        <label>Quantity</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="5">
         <button>Add To Cart</button>
+
     </div>
     `;
 
@@ -57,6 +62,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         applyFilter();
     });
 });
+
 
 
 
