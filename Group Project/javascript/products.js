@@ -1,13 +1,13 @@
 let allProducts = [];
 
 async function displayProducts() {
-    const response = await fetch('productList.json');
+    const response = await fetch('../productList.json');
     allProducts = await response.json();
     createProductCards(allProducts);
 }
 
 function createProductCards(products){
-const page = document.getElementById('productList');
+const page = document.getElementById('../productList');
 page.innerHTML = "";
 
 products.forEach(item => {
@@ -15,7 +15,7 @@ products.forEach(item => {
     card.classList.add('card');
 
     card.innerHTML = `
-    <a href="../productDetail.html?id=${item.id}">
+    <a href="../pages/productDetail.html?id=${item.id}">
     <img src="${item.image}" alt="${item.title}" class="cardImg">
     </a>
     <div class="cardContent">

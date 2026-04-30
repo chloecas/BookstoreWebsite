@@ -3,13 +3,13 @@ let allProducts = [];
 let allReviews =[];
 
 async function loadReviews() {
-    const response = await fetch('ratingsReviews.json');
+    const response = await fetch('../ratingsReviews.json');
     allReviews = await response.json();
 }
 
 
 async function loadDetails(id) {
-    const response = await fetch('productList.json');
+    const response = await fetch('../productList.json');
     allProducts = await response.json();
 
     const product = allProducts.find(p => p.id == id);
@@ -66,7 +66,7 @@ async function getRatings(id) {
 
     const rating = productRating.rating;
     const rounded = Math.floor(rating * 2)/2;
-    const imagePath = `img/${rounded}.png`;
+    const imagePath = `../img/${rounded}.png`;
 
     container.innerHTML = `
     <h2 class="numberRating">${productRating.rating}</h2>
