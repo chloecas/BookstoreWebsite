@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Products</title>
+    <link href="stylesheet/baseStyle.css" rel="stylesheet" type="text/css">
+    <link href="stylesheet/productStyle.css" rel="stylesheet" type="text/css">
+    <script src="javascript/products.js" defer></script>
+</head>
+<body>
+    <header>
+        <button type="button" id="login">
+            <figure style="margin:0; width: 40%;">
+                <img class="icon" src="img/account.png" alt="Account">
+                <figcaption>Access Account</figcaption>
+            </figure>
+        </button>
+
+        <button type="button" id="cart">
+            <figure style="margin:0; width: 40%;">
+                <img class="icon" src="img/cartBook.png" alt="Checkout">
+                <figcaption>Checkout</figcaption>
+            </figure>
+        </button>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="">About</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><input type="text" placeholder="Search...">
+                    <button style="border: 1px solid white;" type="button">Enter</button>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="wrapper">
+        <div id="filter">
+            <h3 style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Filter Books</h3>
+
+            <label style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Genre</label>
+                <select id="genreFilter">
+                    <option value="all">All</option>
+                    <option value="science fiction">Science Fiction</option>
+                    <option value="romance">Romance</option>
+                    <option value="historical fiction">Historical Fiction</option>
+                    <option value="non fiction">Non Fiction</option>
+                    <option value="thriller">Thriller</option>
+                    <option value="drama">Drama</option>
+                    <option value="fantasy">Fantasy</option>
+                </select>
+            <p></p>
+            <p></p>
+
+            <label style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Maximum Price</label>
+            <input type="range" id="priceFilter" min="0" max="50" step="0.5">
+            <span id="priceValue"></span>
+            <p></p>
+
+            <label style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Search by Title:</label>
+            <input type="text" placeholder="Search...">
+
+        </div>
+
+        <div id="productList" style="padding-top: 20px;"></div>
+    </div>
+
+    <br>
+
+    <footer>
+        <nav>
+            <div class="footer-container">
+                <ul id="footerList">
+                    <li>
+                        <a href="">About</a>
+                    </li>
+                    <li>
+                        <a href="">Contact</a>
+                    </li>
+                    <li>
+                        <a href="">Newsletter</a>
+                    </li>
+                </ul>
+        
+            <div>
+                <p class="contact">Contact us: 821 Sainte-Croix Ave, Montreal H4L 3X9, Quebec 514-744-7500</p>
+            </div>
+
+            <div class="socials">
+                <label>Find us on social media</label>
+                <button type="button">
+                    <img class="icon" src="img/instagram.png" alt="Instagram">
+                </button>
+                <button type="button">
+                    <img class="icon" src="img/tiktok.png" alt="TikTok">
+                </button>
+                <button type="button">
+                    <img class="icon" src="img/twitter.png" alt="Twitter">
+                </button>
+            </div>
+        </div>
+    </nav>
+</footer> 
+
+</body>
+</html>

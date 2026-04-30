@@ -64,13 +64,14 @@ header button:hover {
 }
 
 .icon {
-    width: 70px;
-    height: 70px;
+    width: 7em;
+    height: 7em;
 }
 
 figcaption {
     text-align: center;
     padding-left: 10px;
+    margin-top: 0;
     font-size:90%;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight:bold;
