@@ -9,6 +9,18 @@ main>h1 {
     margin-bottom: 30px;
 }
 
+#goBack {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #213b20;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#goBack:hover {
+    text-decoration: underline;
+}
+
 .cart {
     display: flex;
     gap: 30px;
@@ -19,6 +31,18 @@ main>h1 {
     flex: 2;
     background: rgba(255, 255, 255, 0.618);
     padding: 20px;
+    border-radius: 10px;
+    max-height: 400px;   /* adjust height */
+    overflow-y: auto;    /* enables vertical scroll */
+    padding-right: 10px;
+}
+
+#cartItems::-webkit-scrollbar {
+    width: 8px;
+}
+
+#cartItems::-webkit-scrollbar-thumb {
+    background: darkolivegreen;
     border-radius: 10px;
 }
 

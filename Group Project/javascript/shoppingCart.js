@@ -77,7 +77,7 @@ function loadCart() {
         </div>
 
         <div class="total">
-            <span>Total</span>
+            <span>Total:</span>
             <span>$${finalTotal.toFixed(2)}</span>
         </div>
 
