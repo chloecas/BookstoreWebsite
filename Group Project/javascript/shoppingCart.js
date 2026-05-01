@@ -16,7 +16,7 @@ function loadCart() {
         return;
     }
 
-    // 🟢 OTHERWISE show items
+    //when not empty yay
     let total = 0;
     let totalItems = 0;
 
@@ -29,7 +29,7 @@ function loadCart() {
 
         cartItems.innerHTML += `
             <div class="cart-row">
-                <img src="${item.image}">
+                <img src="../${item.image}">
                 
                 <div class="item-info">
                     <h3>${item.name}</h3>
@@ -72,3 +72,28 @@ function loadCart() {
 }
 
 loadCart();
+
+function changeQty(index, amount) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart[index].quantity += amount;
+
+    if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    loadCart();
+}
+
+function removeItem(index) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.splice(index, 1);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    loadCart();
+}
+

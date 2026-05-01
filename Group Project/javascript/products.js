@@ -29,8 +29,12 @@ products.forEach(item => {
     </div>
     `;
 
+    const qtyInput = card.querySelector('#quantity');
     card.querySelector('button')
-    .addEventListener('click', () => addToCart(item));
+    .addEventListener('click', () => {
+    const quantity = parseInt(qtyInput.value) || 1;
+    addToCart(item, quantity);
+    });
 
     page.appendChild(card);
     });
@@ -63,7 +67,25 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 });
 
+function addToCart(item, quantity) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+    let existing = cart.find(p => p.id === item.id);
+
+    if (existing) {
+        existing.quantity += quantity;
+    } else {
+        cart.push({
+            id: item.id,
+            name: item.title,
+            price: item.price,
+            image: item.image,
+            quantity: quantity
+        });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
 
 
 
