@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +8,18 @@
     <link href="../stylesheet/productStyle.css" rel="stylesheet" type="text/css">
     <script src="../javascript/products.js" defer></script>
 </head>
+
 <body>
     <header>
         <button type="button" id="login">
-            <figure style="margin:0; width: 40%;">
+            <figure>
                 <img class="icon" src="../img/BookStoreLogo.png" alt="Account">
                 <figcaption>Access Account</figcaption>
             </figure>
         </button>
-
+        <a href="../pages/home.html" class="header-click"></a>
         <button type="button" id="cart">
-            <figure style="margin:0; width: 40%;">
+            <figure>
                 <a href="../pages/shoppingCart.html"><img class="icon" src="../img/CartLogo.png" alt="Checkout"></a>
                 <figcaption>Checkout</figcaption>
             </figure>
@@ -25,19 +27,19 @@
     </header>
     <nav>
         <ul>
-            <li><a href="">About</a></li>
-            <li><a href="products.html">Products</a></li>
+            <li><a href="../pages/about.html">About</a></li>
+            <li><a href="../pages/products.html">Products</a></li>
             <li><input type="text" placeholder="Search...">
-                    <button style="border: 1px solid white;" type="button">Enter</button>
+                <button style="border: 1px solid white;" type="button">Enter</button>
             </li>
         </ul>
     </nav>
+    <main>
+        <div class="wrapper">
+            <div id="filter">
+                <h3 style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Filter Books</h3>
 
-    <div class="wrapper">
-        <div id="filter">
-            <h3 style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Filter Books</h3>
-
-            <label style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Genre</label>
+                <label style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Genre</label>
                 <select id="genreFilter">
                     <option value="all">All</option>
                     <option value="science fiction">Science Fiction</option>
@@ -48,58 +50,64 @@
                     <option value="drama">Drama</option>
                     <option value="fantasy">Fantasy</option>
                 </select>
-            <p></p>
-            <p></p>
+                <p></p>
+                <p></p>
 
-            <label style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Maximum Price</label>
-            <input type="range" id="priceFilter" min="0" max="50" step="0.5">
-            <span id="priceValue"></span>
-            <p></p>
+                <label style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Maximum Price</label>
+                <input type="range" id="priceFilter" min="0" max="50" step="0.5">
+                <span id="priceValue"></span>
+                <p></p>
 
-            <label style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Search by Title:</label>
-            <input type="text" placeholder="Search...">
+                <label style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Search by
+                    Title:</label>
+                <input type="text" placeholder="Search...">
 
+            </div>
+
+            <div id="productList" style="padding-top: 20px;"></div>
         </div>
 
-        <div id="productList" style="padding-top: 20px;"></div>
-    </div>
-
-    <br>
-
+        <br>
+    </main>
     <footer>
         <nav>
             <div class="footer-container">
                 <ul id="footerList">
                     <li>
-                        <a href="">About</a>
+                        <a href="../pages/about.html">About</a>
                     </li>
                     <li>
-                        <a href="">Contact</a>
+                        <a href="../pages/contact.html">Contact</a>
                     </li>
                     <li>
-                        <a href="">Newsletter</a>
+                        <div class="newsletter">
+                            <label>Subscribe to our newsletter</label>
+                            <input type="email" placeholder="Enter your email">
+                            <button type="button">Subscribe</button>
+                        </div>
                     </li>
                 </ul>
-        
-            <div>
-                <p class="contact">Contact us: 821 Sainte-Croix Ave, Montreal H4L 3X9, Quebec 514-744-7500</p>
-            </div>
 
-            <div class="socials">
-                <label>Find us on social media</label>
-                <button type="button">
-                    <img class="icon" src="../img/instagram.png" alt="Instagram">
-                </button>
-                <button type="button">
-                    <img class="icon" src="../img/tiktok.png" alt="TikTok">
-                </button>
-                <button type="button">
-                    <img class="icon" src="../img/twitter.png" alt="Twitter">
-                </button>
+                <div>
+                    <p class="contact">Contact us: 821 Sainte-Croix Ave, Montreal H4L 3X9, Quebec 514-744-7500</p>
+                </div>
+
+                <div class="socials">
+                    <label>Find us on social media</label>
+                    <button type="button">
+                        <img class="icon" src="../img/instagram.png" alt="Instagram">
+                    </button>
+                    <button type="button">
+                        <img class="icon" src="../img/tiktok.png" alt="TikTok">
+                    </button>
+                    <button type="button">
+                        <img class="icon" src="../img/twitter.png" alt="Twitter">
+                    </button>
+                </div>
             </div>
-        </div>
-    </nav>
-</footer> 
+        </nav>
+    </footer>
 
 </body>
+
 </html>

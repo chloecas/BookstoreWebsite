@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,16 @@
     <link href="../stylesheet/productDetails.css" rel="stylesheet" type="text/css">
     <script src="../javascript/productDetails.js" defer></script>
 </head>
+
 <body>
-   <header>
+    <header>
         <button type="button" id="login">
             <figure>
                 <img class="icon" src="../img/BookStoreLogo.png" alt="Account">
                 <figcaption>Access Account</figcaption>
             </figure>
         </button>
-
+        <a href="../pages/home.html" class="header-click"></a>
         <button type="button" id="cart">
             <figure>
                 <a href="../pages/shoppingCart.html"><img class="icon" src="../img/CartLogo.png" alt="Checkout"></a>
@@ -29,30 +31,66 @@
             <li><a href="products.html">Products</a></li>
         </ul>
     </nav>
+    <main>
+        <h1 id="title">PRODUCT DETAILS</h1>
 
-    <h1 id="title">PRODUCT DETAILS</h1>
-    
-    <div class="detailContainer">
-        
-        <div id="productDetails"></div>
-        
-        <div id="reviewsContainer">
-            <div class="rating">
-                <h2 class="heading">User Rating</h2>
-                <div id="ratingCard"></div>
+        <div class="detailContainer">
+
+            <div id="productDetails"></div>
+
+            <div id="reviewsContainer">
+                <div class="rating">
+                    <h2 class="heading">User Rating</h2>
+                    <div id="ratingCard"></div>
+                </div>
+
+                <h2 class="heading">Reviews</h2>
+                <div id="reviews"></div>
             </div>
-            
-            <h2 class="heading">Reviews</h2>
-            <div id="reviews"></div>
         </div>
-    </div>
-    
-    <button class="detailsButton" type="button"> Checkout</button>
-    <button class="detailsButton" type="button">Add To Cart</button>
-    <p></p>
-   
-    <footer>
 
-   </footer>
+        <button class="detailsButton" type="button"> Checkout</button>
+        <button class="detailsButton" type="button">Add To Cart</button>
+        <p></p>
+    </main>
+    <footer>
+        <nav>
+            <div class="footer-container">
+                <ul id="footerList">
+                    <li>
+                        <a href="">About</a>
+                    </li>
+                    <li>
+                        <a href="">Contact</a>
+                    </li>
+                    <li>
+                        <div class="newsletter">
+                            <label>Subscribe to our newsletter</label>
+                            <input type="email" placeholder="Enter your email">
+                            <button type="button">Subscribe</button>
+                        </div>
+                    </li>
+                </ul>
+
+                <div>
+                    <p class="contact">Contact us: 821 Sainte-Croix Ave, Montreal H4L 3X9, Quebec 514-744-7500</p>
+                </div>
+
+                <div class="socials">
+                    <label>Find us on social media</label>
+                    <button type="button">
+                        <img class="icon" src="../img/instagram.png" alt="Instagram">
+                    </button>
+                    <button type="button">
+                        <img class="icon" src="../img/tiktok.png" alt="TikTok">
+                    </button>
+                    <button type="button">
+                        <img class="icon" src="../img/twitter.png" alt="Twitter">
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </footer>
 </body>
+
 </html>

@@ -1,0 +1,38 @@
+.error-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #f7efe3;
+  text-align: center;
+}
+
+.error-box h1 {
+  font-size: 6rem;
+  color: #6f3e25;
+}
+
+.error-box h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.error-box p {
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+}
+
+/* button */
+.error-btn {
+  text-decoration: none;
+  padding: 12px 25px;
+  background: #6f8f3d;
+  color: white;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+
+.error-btn:hover {
+  background: #556e2f;
+}

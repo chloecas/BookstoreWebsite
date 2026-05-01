@@ -5,12 +5,50 @@ header {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    position: relative;
 
-    display:flex;
+    display: flex;
     justify-content: space-between;
-    align-items:center;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
 }
 
+.header-click {
+    position: absolute;
+    top: 35%;
+    left: 20%;
+    width: 60%;
+    height: 40%;
+
+    z-index: 5;
+    /*on top of the main header*/
+}
+#login, #cart {
+  padding: 10px;
+  min-width: 60px;
+  min-height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#login img,
+#cart img {
+  width: 100px;  
+  height: 100px;
+}
+main {
+  flex: 1;
+}
 body {
     background-image: url("../img/background.png");
     height: 100%;
@@ -18,11 +56,13 @@ body {
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
+    margin: 0;
+    
 }
 
 nav {
-	background-color: darkolivegreen;
-	height: 22px;
+    background-color: darkolivegreen;
+    height: 22px;
 }
 
 nav ul {
@@ -31,7 +71,7 @@ nav ul {
 }
 
 nav ul li {
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     list-style: none;
 }
 
@@ -40,8 +80,9 @@ nav ul li a {
     text-decoration: none;
 }
 
-nav li a:hover, nav li a.current {
-	color: #000000;
+nav li a:hover,
+nav li a.current {
+    color: #000000;
 }
 
 button {
@@ -54,83 +95,141 @@ button {
 header button {
     transition: transform .7s ease-in-out;
 
-    display:flex;
+    display: flex;
     padding: 20px;
-    
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+.header .icon {
+  width: 40px;  
+  height: 40px;
 }
 
 header button:hover {
     transform: rotate(360deg);
 }
 
-.icon {
-    width: 7em;
-    height: 7em;
-}
-
 figcaption {
     text-align: center;
     padding-left: 10px;
     margin-top: 0;
-    font-size:90%;
+    font-size: 90%;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight:bold;
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap:20px;
+    font-weight: bold;
 }
 
 footer {
-    padding: 60px 0;
-    width:100%;
-    background-color: darkolivegreen;
+  background: #506d2f;
+  padding: 20px 40px;
+  margin-top: auto;
+  height: 100px;
 }
 
-footer nav {
-    width: 100%;
-}
-
-#footerList, .contact {
+.footer-container {
     display: flex;
-    flex-direction: column;
-    align-items:center;
-    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
 }
 
 #footerList {
     list-style: none;
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    gap: 25px;
     padding: 0;
     margin: 0;
 }
 
+#footerList a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-container .contact {
+    margin: 0;
+    text-align: center;
+    color: black;
+}
+
 .socials {
     display: flex;
-    gap:8px;
-    flex-direction: row;
-    align-items: flex-end;
+    align-items: center;
+    gap: 12px;
+    color: white;
 }
 
-.contact {
-    margin: 0;
-    line-height: 1.4;
-    max-width: 250px;
+.socials button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
 }
 
-.socials label {
-    margin-right: 10px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color:white;
+.icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.hero {
+    height: 80vh;
+    /* big section */
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* background image */
+    background: linear-gradient(rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)),
+        url("images/library.jpg") center/cover no-repeat;
+
+    color: white;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    /* big title */
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
 }
 
 
+.hero-btn:hover {
+    background: #ff4c4c;
+}
 
+.newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.newsletter input {
+    padding: 6px;
+    border-radius: 5px;
+    border: none;
+}
+
+.newsletter button {
+    padding: 6px;
+    background: #6f8f3d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -1,0 +1,32 @@
+{
+  "genres": [
+    {
+      "name": "Science Fiction",
+      "info": "Futuristic worlds, technology, space exploration, and advanced science."
+    },
+    {
+      "name": "Romance",
+      "info": "Stories about love, relationships, emotions, and personal connection."
+    },
+    {
+      "name": "Historical Fiction",
+      "info": "Stories set in the past, mixing history with fictional characters."
+    },
+    {
+      "name": "Non Fiction",
+      "info": "Informative books based on real events, facts, people, or topics."
+    },
+    {
+      "name": "Thriller",
+      "info": "Suspenseful stories full of tension, danger, and unexpected twists."
+    },
+    {
+      "name": "Drama",
+      "info": "Emotional stories focused on conflict, personal struggles, and relationships."
+    },
+    {
+      "name": "Fantasy",
+      "info": "Magical worlds, mythical creatures, quests, and imaginary adventures."
+    }
+  ]
+}
