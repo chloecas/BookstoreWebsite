@@ -1,12 +1,12 @@
 function loadCart() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     let cartItems = document.getElementById("cartItems");
-    let cartSummary = document.getElementById("cartSummary");
+    let cartSummary = document.getElementById("Summary");
 
     // when empty
     if (cart.length === 0) {
         cartItems.innerHTML = `
-            <div class="empty-cart">
+            <div class="emptyCart">
                 <h2>Your cart is empty</h2>
                 <p>Add some books to see them here</p>
             </div>
@@ -28,10 +28,10 @@ function loadCart() {
         totalItems += item.quantity;
 
         cartItems.innerHTML += `
-            <div class="cart-row">
+            <div class="row">
                 <img src="../${item.image}">
                 
-                <div class="item-info">
+                <div class="itemInfo">
                     <h3>${item.name}</h3>
                     <p>$${item.price}</p>
                 </div>
@@ -44,30 +44,44 @@ function loadCart() {
 
                 <div class="subtotal">$${subtotal.toFixed(2)}</div>
 
-                <button onclick="removeItem(${index})">❌</button>
+                <button onclick="removeItem(${index})">✖</button>
             </div>
         `;
     });
 
+    let gst = total * 0.05;
+    let qst = total * 0.09975;
+    let finalTotal = total + gst + qst;
+
     cartSummary.innerHTML = `
         <h2>Order Summary</h2>
 
-        <div class="summary-row">
+        <div class="Srow">
             <span>Items</span>
             <span>${totalItems}</span>
         </div>
 
-        <div class="summary-row">
+        <div class="Srow">
             <span>Subtotal</span>
             <span>$${total.toFixed(2)}</span>
         </div>
 
-        <div class="summary-row total">
-            <span>Total</span>
-            <span>$${total.toFixed(2)}</span>
+        <div class="Srow">
+            <span>GST (5%)</span>
+            <span>$${gst.toFixed(2)}</span>
         </div>
 
-        <button class="checkout-btn">Proceed to Checkout</button>
+        <div class="Srow">
+            <span>QST (9.975%)</span>
+            <span>$${qst.toFixed(2)}</span>
+        </div>
+
+        <div class="total">
+            <span>Total</span>
+            <span>$${finalTotal.toFixed(2)}</span>
+        </div>
+
+        <button class="checkoutBtn">Proceed to Checkout</button>
     `;
 }
 

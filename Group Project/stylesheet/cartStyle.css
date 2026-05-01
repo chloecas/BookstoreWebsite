@@ -1,5 +1,6 @@
 main {
     padding: 40px;
+    color: #213b20;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -8,20 +9,20 @@ main>h1 {
     margin-bottom: 30px;
 }
 
-.cart-content {
+.cart {
     display: flex;
     gap: 30px;
 }
 
 /* LEFT SIDE */
-.cart-items {
+#cartItems {
     flex: 2;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.618);
     padding: 20px;
     border-radius: 10px;
 }
 
-.cart-row {
+.row {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -29,13 +30,13 @@ main>h1 {
     padding: 15px 0;
 }
 
-.cart-row img {
+.row>img {
     width: 70px;
     height: 70px;
     object-fit: cover;
 }
 
-.item-info {
+.itemInfo {
     flex: 1;
     margin-left: 15px;
 }
@@ -46,9 +47,9 @@ main>h1 {
     gap: 10px;
 }
 
-.quantity button {
+.quantity>button {
     background: #6f8f3d;
-    color: white;
+    color: #213b20;
     border-radius: 5px;
     padding: 5px 10px;
 }
@@ -73,52 +74,52 @@ main>h1 {
 
 .coupon button {
     background: #6f8f3d;
-    color: white;
+    color: #213b20;
     padding: 8px 15px;
     border-radius: 5px;
 }
 
 /* RIGHT SIDE */
-.cart-summary {
+#Summary {
     flex: 1;
-    background: rgba(255,255,255,0.95);
+    background: rgba(255, 255, 255, 0.618);
     padding: 20px;
     border-radius: 10px;
     height: fit-content;
 }
 
-.cart-summary h2 {
+#Summary>h2 {
     margin-bottom: 20px;
 }
 
-.summary-row {
+.Srow {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
 }
 
-.summary-row.total {
+.total {
     font-weight: bold;
     margin-top: 15px;
 }
 
-.checkout-btn {
+.checkoutBtn {
     margin-top: 20px;
     width: 100%;
     padding: 10px;
     background: darkolivegreen;
-    color: white;
+    color: #153914;
     border-radius: 8px;
     font-size: 1rem;
 }
 
-.empty-cart {
+.emptyCart {
     text-align: center;
     padding: 40px;
-    background: rgba(255,255,255,0.8);
+    background: rgba(255, 255, 255, 0.618);
     border-radius: 10px;
 }
 
-.empty-cart h2 {
+.emptyCart>h2 {
     margin-bottom: 10px;
 }
