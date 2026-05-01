@@ -22,7 +22,7 @@ async function loadDetails(id) {
 
     container.innerHTML = `
     <h2 id="prodTitle">${product.title}</h2>
-    <img src="${product.image}" class="productImage" alt="${product.title}">
+    <img src="../${product.image}" class="productImage" alt="${product.title}">
     <p id="author">${product.author} (${product.release_year})</p>
     <p id="price">$${product.price.toFixed(2)} CAD</p>
     <p id="description">${product.description || ""}</p>

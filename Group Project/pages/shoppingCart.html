@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
     <link href="../stylesheet/baseStyle.css" rel="stylesheet" type="text/css">
+    <link href="../stylesheet/cartStyle.css" rel="stylesheet" type="text/css">
+    <script src="../javascript/shoppingCart.js" defer></script>
 </head>
 
 <body>
@@ -16,17 +18,17 @@
                 <figcaption>Access Account</figcaption>
             </figure>
         </button>
-        <a href="../pages/home.html" class="header-click"></a>
+        <a href="home.html" class="header-click"></a>
         <button type="button" id="cart">
             <figure>
-                <a href="../pages/shoppingCart.html"><img class="icon" src="../img/CartLogo.png" alt="Checkout"></a>
+                <a href="shoppingCart.html"><img class="icon" src="../img/CartLogo.png" alt="Checkout"></a>
                 <figcaption>Checkout</figcaption>
             </figure>
         </button>
     </header>
     <nav>
         <ul>
-            <li><a href="">About</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="products.html">Products</a></li>
             <li><input type="text" placeholder="Search...">
                 <button style="border: 1px solid white;" type="button">Enter</button>
@@ -34,16 +36,25 @@
         </ul>
     </nav>
     <main>
+       <h1>Shopping Cart</h1>
+
+        <div class="cart-content">
+            <!-- LEFT -->
+            <div id="cartItems" class="cart-items"></div>
+
+            <!-- RIGHT -->
+            <div id="cartSummary" class="cart-summary"></div>
+        </div>
     </main>
     <footer>
         <nav>
             <div class="footer-container">
                 <ul id="footerList">
                     <li>
-                        <a href="">About</a>
+                        <a href="about.html">About</a>
                     </li>
                     <li>
-                        <a href="">Contact</a>
+                        <a href="contact.html">Contact</a>
                     </li>
                     <li>
                         <div class="newsletter">

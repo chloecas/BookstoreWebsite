@@ -7,7 +7,7 @@ async function displayProducts() {
 }
 
 function createProductCards(products){
-const page = document.getElementById('../productList');
+const page = document.getElementById('productList');
 page.innerHTML = "";
 
 products.forEach(item => {
@@ -16,7 +16,7 @@ products.forEach(item => {
 
     card.innerHTML = `
     <a href="../pages/productDetail.html?id=${item.id}">
-    <img src="${item.image}" alt="${item.title}" class="cardImg">
+    <img src="../${item.image}" alt="${item.title}" class="cardImg">
     </a>
     <div class="cardContent">
         <h3>${item.title}</h3>
