@@ -7,6 +7,7 @@ async function loadReviews() {
     allReviews = await response.json();
 }
 
+
 async function loadDetails(id) {
     const response = await fetch('productList.json');
     allProducts = await response.json();
@@ -25,7 +26,16 @@ async function loadDetails(id) {
     <p id="author">${product.author} (${product.release_year})</p>
     <p id="price">$${product.price.toFixed(2)} CAD</p>
     <p id="description">${product.description || ""}</p>
+    
+    <div class="buttonPanel">
+        <button class="detailsButton" type="button"> Checkout</button>
+        <label>Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="5">
+        <button class="detailsButton" type="button">Add To Cart</button>
+    </div>
     `;
+
+    return product;
 }
 
 async function getReviews(id) {
@@ -52,11 +62,69 @@ async function getReviews(id) {
     });
 }
 
+async function getRatings(id) {
+    const productRating = allReviews.find(r => r.id == id);
+    const container = document.getElementById('ratingCard');
+
+    container.innerHTML = "";
+
+    if(!productRating) {
+        container.innerHTML="<p>No Rating Found</p>";
+        return;
+    }
+
+    const rating = productRating.rating;
+    const rounded = Math.floor(rating * 2)/2;
+    const imagePath = `img/${rounded}.png`;
+
+    container.innerHTML = `
+    <h2 class="numberRating">${productRating.rating}</h2>
+    <img class="stars" src="${imagePath}" alt="star rating">
+    `;
+}
+
+ async function loadRelated(genre, currentId){
+    const response = await fetch('productList.json');
+    allProducts = await response.json();
+
+    const container = document.getElementById('bookCarousel');
+    container.innerHTML ="";
+    
+    const products = allProducts.filter(p => p.genre == genre && p.id != currentId);
+
+    if(products.length == 0){
+        container.innerHTML="<p>No Products Found</p>";
+        return;
+    }
+
+    const maxItems = Math.min(products.length, 3);
+
+    for(let i = 0; i < maxItems; i++){
+        const item = products[i];
+        const cardBooks = document.createElement('div');
+        cardBooks.classList.add('cardBooks');
+
+        cardBooks.innerHTML = `  
+        <a href="../productDetail.html?id=${item.id}">
+            <img src="${item.image}" alt="${item.title}" class="cardImg">
+        </a>
+         <div class="cardContent">
+            <h3>${item.title}</h3>
+            <p>${item.author} (${item.release_year})</p>
+        </div>
+        `;
+
+        container.appendChild(cardBooks);
+    }
+} 
+
 document.addEventListener('DOMContentLoaded', async () => {
     const parameter = new URLSearchParams(window.location.search);
     const productId = parameter.get("id");
 
     await loadReviews();
-    loadDetails(productId);
+    const product = await loadDetails(productId);
     getReviews(productId);
+    getRatings(productId);
+    loadRelated(product.genre, product.id);
 });
