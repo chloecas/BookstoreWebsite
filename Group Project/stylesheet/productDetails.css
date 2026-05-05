@@ -68,20 +68,45 @@
     max-height:500px;
 }
 
-.productDetails {
+#productDetails {
     margin:10px;
-    padding-left: 30px;
-    align-items:center;
+    text-align:center;
+    background-color: rgba(172, 204, 164, 0.8);
 }
 
-#prodTitle {
-    padding-left:70px;
-}
-
-#author, #price, #description, #prodTitle {
+#author, #price, #description, #prodTitle, .cardContent {
      font-family: Georgia, 'Times New Roman', Times, serif;
 
 }
+
+#author, #price {
+    font-weight: bold;
+}
+
 #description {
-    background-color: rgba(164, 189, 157, 0.8);
+    padding: 10px;
+    background-color: rgba(218, 223, 216, 0.6);
+}
+
+
+#bookCarousel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    background-color: rgba(172, 204, 164, 0.8);
+}
+
+.cardBooks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(91, 109, 87, 0.8);
+    padding-top: 20px;
+    text-align: center;
+}
+
+.cardImg {
+    aspect-ratio: 4/5;
+    max-height: 300px;
 }
