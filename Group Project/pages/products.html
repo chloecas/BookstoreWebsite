@@ -1,5 +1,4 @@
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,38 +7,38 @@
     <link href="../stylesheet/productStyle.css" rel="stylesheet" type="text/css">
     <script src="../javascript/products.js" defer></script>
 </head>
-
 <body>
     <header>
         <button type="button" id="login">
             <figure>
-                <a href="pages/login.html"><img class="icon" src="img/BookStoreLogo.png" alt="Account"></a>
+                <a href="pages/login.html"><img class="icon" src="../img/BookStoreLogo.png" alt="Account"></a>
                 <figcaption>Access Account</figcaption>
             </figure>
         </button>
-        <a href="../pages/home.html" class="header-click"></a>
+        <a href="/home.html" class="header-click"></a>
+
         <button type="button" id="cart">
             <figure>
-                <a href="../pages/shoppingCart.html"><img class="icon" src="../img/CartLogo.png" alt="Checkout"></a>
+                <a href="/pages/shoppingCart.html"><img class="icon" src="../img/CartLogo.png" alt="Checkout"></a>
                 <figcaption>Checkout</figcaption>
             </figure>
         </button>
     </header>
     <nav>
         <ul>
-            <li><a href="../pages/about.html">About</a></li>
+            <li><a href="/pages/about.html">About</a></li>
             <li><a href="../pages/products.html">Products</a></li>
             <li><input type="text" placeholder="Search...">
-                <button style="border: 1px solid white;" type="button">Enter</button>
+                    <button style="border: 1px solid white;" type="button">Enter</button>
             </li>
         </ul>
     </nav>
-    <main>
-        <div class="wrapper">
-            <div id="filter">
-                <h3 style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Filter Books</h3>
 
-                <label style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Genre</label>
+    <div class="wrapper">
+        <div id="filter">
+            <h3 style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Filter Books</h3>
+
+            <label style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Genre</label>
                 <select id="genreFilter">
                     <option value="all">All</option>
                     <option value="science fiction">Science Fiction</option>
@@ -50,34 +49,38 @@
                     <option value="drama">Drama</option>
                     <option value="fantasy">Fantasy</option>
                 </select>
-                <p></p>
-                <p></p>
+            <p></p>
+            <p></p>
 
-                <label style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Maximum Price</label>
-                <input type="range" id="priceFilter" min="0" max="50" step="0.5">
-                <span id="priceValue"></span>
-                <p></p>
+            <label style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Maximum Price</label>
+            <input type="range" id="priceFilter" min="0" max="50" step="0.5">
+            <span id="priceValue"></span>
+            <p></p>
 
-                <label style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Search by
-                    Title:</label>
-                <input type="text" placeholder="Search...">
+            <label style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Search by Title:</label>
+            <input type="text" placeholder="Search...">
 
-            </div>
+            <p></p>
+             <label style="color:white; font-family:Georgia, 'Times New Roman', Times, serif;">Sort by Price</label><br>
+             <input name="sorting" type="radio" id="highLow">High to Low<br>
+             <input name="sorting" type="radio" id="lowHigh">Low to High
 
-            <div id="productList" style="padding-top: 20px;"></div>
         </div>
 
-        <br>
-    </main>
+        <div id="productList" style="padding-top: 20px;"></div>
+    </div>
+
+    <br>
+
     <footer>
-        <nav>
+         <nav>
             <div class="footer-container">
                 <ul id="footerList">
                     <li>
-                        <a href="../pages/about.html">About</a>
+                        <a href="about.html">About</a>
                     </li>
                     <li>
-                        <a href="../pages/contact.html">Contact</a>
+                        <a href="contact.html">Contact</a>
                     </li>
                     <li>
                         <div class="newsletter">
@@ -106,8 +109,7 @@
                 </div>
             </div>
         </nav>
-    </footer>
+</footer> 
 
 </body>
-
 </html>
