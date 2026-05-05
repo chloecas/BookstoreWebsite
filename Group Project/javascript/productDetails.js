@@ -28,12 +28,24 @@ async function loadDetails(id) {
     <p id="description">${product.description || ""}</p>
     
     <div class="buttonPanel">
-        <button class="detailsButton" type="button"> Checkout</button>
+        <button class="detailsButton checkout" type="button"> Checkout</button>
         <label>Quantity:</label>
-            <input type="number" id="quantity" name="quantity" min="1" max="5">
-        <button class="detailsButton" type="button">Add To Cart</button>
+            <input type="number" class="quantityInput" id="quantity" name="quantity" min="1" max="5" placeholder="1">
+        <button class="detailsButton addCart" type="button">Add To Cart</button>
     </div>
     `;
+
+    const checkoutButton = container.querySelector('.checkout');
+    checkoutButton.addEventListener('click', () => {
+        window.location.href = "../pages/shoppingCart.html";
+    });
+
+    const qtyInput = container.querySelector('.quantityInput');
+    const addButton = container.querySelector('.addCart');
+    addButton.addEventListener('click', () => {
+    const quantity = parseInt(qtyInput.value) || 1;
+    addToCart(product, quantity);
+    });
 
     return product;
 }
@@ -128,3 +140,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     getRatings(productId);
     loadRelated(product.genre, product.id);
 });
+
+function addToCart(item, quantity) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let existing = cart.find(p => p.id === item.id);
+
+    if (existing) {
+        existing.quantity += quantity;
+    } else {
+        cart.push({
+            id: item.id,
+            name: item.title,
+            price: item.price,
+            image: item.image,
+            quantity: quantity
+        });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+}

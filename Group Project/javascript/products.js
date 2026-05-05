@@ -23,7 +23,7 @@ products.forEach(item => {
         <p>${item.author} (${item.release_year})</p>
         <p class="price">$${item.price.toFixed(2)} CAD</p>
         <label>Quantity</label>
-        <input type="number" id="quantity" name="quantity" min="1" max="5">
+        <input type="number" id="quantity" name="quantity" min="1" max="5" placeholder="1">
         <button>Add To Cart</button>
 
     </div>

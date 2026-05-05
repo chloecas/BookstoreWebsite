@@ -67,7 +67,7 @@ function move(direction) {
 }
 /*---------------------------------- Get Genres from genres.json----------------------------------*/
 $(document).ready(function () {
-  $.getJSON("../genres.json", function (data) {
+  $.getJSON("genres.json", function (data) {
     const container = $("#categories");
     data.genres.forEach(function (genre) {
       const category = `
