@@ -1,34 +1,69 @@
-main {
-    padding: 40px;
-    color: #213b20;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+
+.submitForm input[type=text], select, textarea {
+  width: 100%; 
+  padding: 12px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+  margin-top: 6px; 
+  margin-bottom: 16px;
+  resize: vertical 
 }
 
-main>h1 {
-    text-align: center;
-    margin-bottom: 30px;
+.submitForm {
+  border-radius: 5px;
+
+  margin: 10px auto; 
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
-#goBack {
-    display: inline-block;
-    margin-bottom: 20px;
-    color: #213b20;
-    text-decoration: none;
-    font-weight: bold;
+.submitForm form {
+    column-count: 2;
+  width: 100%;
+  background: #f7efe3;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-#goBack:hover {
-    text-decoration: underline;
+.main {
+    display:flex;
+    margin: 30px;
+    max-width: 1000px;
+    justify-content: flex-start;
+    align-items:flex-start;
 }
 
-.cart {
+.leftSide {
+    flex: 1;
     display: flex;
-    gap: 30px;
+    flex-direction: column;
 }
 
-/* LEFT SIDE */
+h2 {
+    padding-left:20px;
+}
+
+.rightSide {
+    flex:0 0 350px;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   justify-content: flex-start;
+   margin-left: auto;
+}
+
+#continue {
+    margin: 25px 25px 25px 75px;
+    padding:7px;
+    border-radius: 5px;
+    background-color: darkolivegreen;
+    color:white;
+}
+
 #cartItems {
-    flex: 2;
     background: rgba(255, 255, 255, 0.618);
     padding: 20px;
     border-radius: 10px;
@@ -39,6 +74,10 @@ main>h1 {
 
 #cartItems::-webkit-scrollbar {
     width: 8px;
+}
+
+#cartItems, #Summary {
+    width: 100%;
 }
 
 #cartItems::-webkit-scrollbar-thumb {
@@ -67,7 +106,7 @@ main>h1 {
 
 .quantity {
     display: flex;
-    align-items: center;
+    align-items: right;
     gap: 10px;
 }
 
@@ -83,27 +122,6 @@ main>h1 {
     text-align: right;
 }
 
-/* COUPON */
-.coupon {
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
-}
-
-.coupon input {
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.coupon button {
-    background: #6f8f3d;
-    color: #213b20;
-    padding: 8px 15px;
-    border-radius: 5px;
-}
-
-/* RIGHT SIDE */
 #Summary {
     flex: 1;
     background: rgba(255, 255, 255, 0.618);
@@ -137,13 +155,4 @@ main>h1 {
     font-size: 1rem;
 }
 
-.emptyCart {
-    text-align: center;
-    padding: 40px;
-    background: rgba(255, 255, 255, 0.618);
-    border-radius: 10px;
-}
 
-.emptyCart>h2 {
-    margin-bottom: 10px;
-}

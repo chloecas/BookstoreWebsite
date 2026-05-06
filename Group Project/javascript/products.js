@@ -44,14 +44,29 @@ function applyFilter() {
     const genre = document.getElementById('genreFilter').value;
     const maxPrice = parseFloat(document.getElementById('priceFilter').value) || Infinity;
 
-    const filtered = allProducts.filter(item => {
+    let filtered = allProducts.filter(item => {
         const matchGenre = genre == "all" || item.genre.toLowerCase() == genre.toLowerCase();
         const matchPrice = item.price <= maxPrice;
 
         return matchGenre && matchPrice;
     });
 
+    filtered = sortProducts(filtered);
+
     createProductCards(filtered);
+}
+
+function sortProducts(products) {
+    const highLow = document.getElementById('highLow').checked;
+    const lowHigh = document.getElementById('lowHigh').checked;
+
+    if(highLow) {
+        return products.slice().sort((a,b) => b.price - a.price);
+    } else if(lowHigh){
+        return products.slice().sort((a,b) => a.price - b.price);
+    }
+
+    return products;
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -59,6 +74,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     document.getElementById('genreFilter')
     .addEventListener('change', applyFilter);
+
+    document.querySelectorAll('input[name="sorting"]').forEach(radio => {
+        radio.addEventListener('change', applyFilter);
+    });
 
     document.getElementById('priceFilter')
     .addEventListener('input', (e) => {

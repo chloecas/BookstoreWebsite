@@ -49,6 +49,7 @@ header {
 main {
   flex: 1;
 }
+
 body {
     background-image: url("../img/background.png");
     height: 100%;

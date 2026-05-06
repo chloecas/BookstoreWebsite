@@ -60,3 +60,8 @@
    gap: 20px;
    justify-content: center;
 }
+
+.pricing {
+    color: white;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+}
