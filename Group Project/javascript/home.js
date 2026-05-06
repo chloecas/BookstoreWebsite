@@ -6,13 +6,13 @@ const viewport = document.querySelector(".carousel-viewport");
 const track = document.getElementById("track");
 
 const images = [
-  "../img/home-imageSlider/khanh-do-Ubs4WISHgr4-unsplash.jpg",
-  "../img/home-imageSlider/aaron-burden-y02jEX_B0O0-unsplash.jpg",
-  "../img/home-imageSlider/thomas-kelley-hHL08lF7Ikc-unsplash.jpg",
-  "../img/home-imageSlider/melody-zimmerman-INr3HbMSMSw-unsplash.jpg",
-  "../img/home-imageSlider/benjamin-raffetseder-LyOz2jJdCY8-unsplash.jpg",
-  "../img/home-imageSlider/k-h-jG-rhs1S4xE-unsplash.jpg",
-  "../img/home-imageSlider/debby-hudson-DR31squbFoA-unsplash.jpg"
+  "img/home-imageSlider/khanh-do-Ubs4WISHgr4-unsplash.jpg",
+  "img/home-imageSlider/aaron-burden-y02jEX_B0O0-unsplash.jpg",
+  "img/home-imageSlider/thomas-kelley-hHL08lF7Ikc-unsplash.jpg",
+  "img/home-imageSlider/melody-zimmerman-INr3HbMSMSw-unsplash.jpg",
+  "img/home-imageSlider/benjamin-raffetseder-LyOz2jJdCY8-unsplash.jpg",
+  "img/home-imageSlider/k-h-jG-rhs1S4xE-unsplash.jpg",
+  "img/home-imageSlider/debby-hudson-DR31squbFoA-unsplash.jpg"
 ];
 
 hero.style.backgroundImage = `
