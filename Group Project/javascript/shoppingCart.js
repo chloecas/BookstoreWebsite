@@ -81,7 +81,7 @@ function loadCart() {
             <span>$${finalTotal.toFixed(2)}</span>
         </div>
 
-        <button class="checkoutBtn">Proceed to Checkout</button>
+        <button class="checkoutBtn" onclick="checkout()">Proceed to Checkout</button>
     `;
 }
 
@@ -89,7 +89,6 @@ loadCart();
 
 function changeQty(index, amount) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
     cart[index].quantity += amount;
 
     if (cart[index].quantity <= 0) {
@@ -97,17 +96,17 @@ function changeQty(index, amount) {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-
     loadCart();
 }
 
 function removeItem(index) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
     cart.splice(index, 1);
-
     localStorage.setItem("cart", JSON.stringify(cart));
-
     loadCart();
+}
+
+function checkout() {
+    window.location.href= "../pages/checkout.html";
 }
 

@@ -117,7 +117,7 @@ async function getRatings(id) {
         cardBooks.classList.add('cardBooks');
 
         cardBooks.innerHTML = `  
-        <a href="/pages/productDetail.html?id=${item.id}">
+        <a href="../pages/productDetail.html?id=${item.id}">
             <img src="../${item.image}" alt="${item.title}" class="cardImg">
         </a>
          <div class="cardContent">
