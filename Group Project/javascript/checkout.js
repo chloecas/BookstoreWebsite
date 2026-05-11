@@ -168,6 +168,7 @@ function loadSummary() {
 }
 
 function placeOrder() {
+    
 
 }
 
