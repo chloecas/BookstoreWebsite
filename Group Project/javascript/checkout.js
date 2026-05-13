@@ -111,7 +111,7 @@ function loadSummary() {
 
                 <div class="subtotal">$${subtotal.toFixed(2)}</div> 
             </div>
-            <input type="button" value="Place Order" id="checkoutButton" onclick="placeOrder()"> 
+            
         `;
     });
 
@@ -168,6 +168,7 @@ function loadSummary() {
 }
 
 function placeOrder() {
+    
     
 
 }
