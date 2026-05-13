@@ -1,0 +1,181 @@
+/* profileStyle.css */
+
+/* ── Layout ───────────────────────────────────────────────── */
+
+.profile-wrapper {
+  display: flex;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  align-items: flex-start;
+}
+
+/* ── Left Card (API data) ─────────────────────────────────── */
+
+.profile-card {
+  flex: 0 0 260px;
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.avatar-wrap {
+  margin-bottom: 1.2rem;
+}
+
+.avatar-wrap img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ccc;
+}
+
+.api-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #999;
+  margin: 0.6rem 0 0.1rem;
+}
+
+.api-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0;
+  word-break: break-word;
+}
+
+.api-status {
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  display: none;
+}
+
+.api-status[data-type="error"] { background: #fde8e8; color: #c0392b; }
+.api-status[data-type="info"]  { background: #eaf3ff; color: #2471a3; }
+
+/* ── Right Edit Panel ─────────────────────────────────────── */
+
+.profile-edit {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.profile-edit h2 {
+  margin: 0 0 0.3rem;
+  font-size: 1.5rem;
+  color: #1a1a1a;
+}
+
+.profile-subtitle {
+  color: #777;
+  font-size: 0.88rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Form Groups ──────────────────────────────────────────── */
+
+.formGroup {
+  margin-bottom: 1.1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #444;
+}
+
+.formGroup input {
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.formGroup input:focus {
+  border-color: #555;
+}
+
+.field-error {
+  color: red;
+  font-size: 0.78rem;
+  margin-top: 3px;
+  min-height: 1em;
+}
+
+/* ── Save Status Banner ───────────────────────────────────── */
+
+.save-status {
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  margin-bottom: 1rem;
+}
+
+.save-status[data-type="success"] { background: #e8f8e8; color: #27ae60; }
+.save-status[data-type="error"]   { background: #fde8e8; color: #c0392b; }
+
+/* ── Buttons ──────────────────────────────────────────────── */
+
+.profile-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btnForm {
+  padding: 0.6rem 1.4rem;
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btnForm:hover { background: #444; }
+
+.btnLogout {
+  padding: 0.6rem 1.4rem;
+  background: transparent;
+  color: #c0392b;
+  border: 1px solid #c0392b;
+  border-radius: 6px;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btnLogout:hover {
+  background: #c0392b;
+  color: #fff;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+
+@media (max-width: 650px) {
+  .profile-wrapper {
+    flex-direction: column;
+  }
+
+  .profile-card {
+    flex: none;
+    width: 100%;
+  }
+}

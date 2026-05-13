@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Profile</title>
     <link href="../stylesheet/baseStyle.css" rel="stylesheet" type="text/css">
-    <link href="../stylesheet/loginStyle.css" rel="stylesheet" type="text/css">
-    <script src="../javascript/login.js" defer></script>
+    <link href="../stylesheet/profileStyle.css" rel="stylesheet" type="text/css">
+    <script src="../javascript/profile.js" defer></script>
 </head>
 
 <body>
@@ -36,34 +36,66 @@
         </ul>
     </nav>
 
-<main>
-        <div class="Container">
-            <div class="imgArea">
-                <img src="" alt="Decorative image">
+    <main>
+        <div class="profile-wrapper">
+ 
+            
+            <div class="profile-card">
+                <div class="avatar-wrap">
+                    <img id="profileAvatar" src="" alt="Profile Avatar">
+                </div>
+                <div class="api-info">
+                    <p class="api-label">Account ID</p>
+                    <p class="api-value" id="apiUserId">—</p>
+ 
+                    <p class="api-label">Registered Email</p>
+                    <p class="api-value" id="apiUserEmail">—</p>
+ 
+                    <p class="api-label">Full Name</p>
+                    <p class="api-value" id="apiFirstName">—</p>
+ 
+                </div>
+                <div id="apiStatus" class="api-status"></div>
             </div>
  
-            <!-- Right form panel -->
-            <form class="form" method="post">
+            
+            <div class="profile-edit">
+                <h2>My Profile</h2>
+                <p class="profile-subtitle">Edit your display information below. Changes are saved to your session.</p>
  
-                <h2>Welcome back</h2>
-                <p>Enter your details to access your account.</p>
+                <div id="saveStatus" class="save-status" style="display:none;"></div>
  
                 <div class="formGroup">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Enter your email">
+                    <label for="editName">Display Name</label>
+                    <input type="text" id="editName" placeholder="Your display name">
+                    <span class="field-error" id="nameError"></span>
                 </div>
  
                 <div class="formGroup">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Enter your password">
+                    <label for="editEmail">Contact Email</label>
+                    <input type="email" id="editEmail" placeholder="Your contact email">
+                    <span class="field-error" id="emailError"></span>
+                </div>
+
+                <div class="formGroup">
+                    <label for="editPassword">New Password</label>
+                    <input type="password" id="editPassword" placeholder="Enter new password">
+                    <span class="field-error" id="passwordError"></span>
+                </div>
+
+                <div class="formGroup">
+                    <label for="editConfirmPassword">Confirm New Password</label>
+                    <input type="password" id="editConfirmPassword" placeholder="Confirm new password">
+                    <span class="field-error" id="confirmPasswordError"></span>
                 </div>
  
  
-                <button type="submit" class="btnForm">Login</button>
+                <div class="profile-actions">
+                    <button type="button" id="saveBtn" class="btnForm">Save Changes</button>
+                    <button type="button" id="logoutBtn" class="btnLogout">Logout</button>
+                </div>
+            </div>
  
-                <p class="Link">New here? <a href="signup.html">Create an account</a></p>
- 
-            </form>
         </div>
     </main>
     <footer>
