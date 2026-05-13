@@ -1,75 +1,90 @@
-const results = document.getElementById("results");
-const searchTitle = document.getElementById("searchTitle");
+/*---------------------------------- Search bar logic ----------------------------------*/
+const searchInput = document.getElementById("searchInput");
+const searchBtn = document.getElementById("searchButton");
+const suggestions = document.getElementById("suggestions");
 
-let books = [];
+let searchBooks = [];
 
-// GET QUERY FROM URL
-const params = new URLSearchParams(window.location.search);
-const query = params.get("q")?.toLowerCase() || "";
+const isInsidePages =
+    window.location.pathname.includes("/pages/");
 
-// SHOW TITLE
-searchTitle.textContent = `Results for "${params.get("q")}"`;
+const jsonPath = isInsidePages
+    ? "../productList.json"
+    : "productList.json";
 
+const resultsPath = isInsidePages
+    ? "../pages/searchResults.html"
+    : "pages/searchResults.html";
 
 // LOAD DATA
-fetch("../productList.json")
+fetch(jsonPath)
     .then(res => res.json())
     .then(data => {
-        books = data;
-        renderResults();
+        searchBooks = data;
+        console.log("Books loaded:", searchBooks);
     })
-    .catch(err => console.error(err));
+    .catch(err => console.error("Error loading books:", err));
 
 
-// RENDER RESULTS
-function renderResults() {
+// LIVE SUGGESTIONS
+searchInput.addEventListener("input", () => {
 
-    const filtered = books
-  .filter(book => book.title.toLowerCase().includes(query))
-  .sort((a, b) => {
-    const aTitle = a.title.toLowerCase();
-    const bTitle = b.title.toLowerCase();
+    const query = searchInput.value.trim().toLowerCase();
 
-    return aTitle.indexOf(query) - bTitle.indexOf(query);
-  });
-
-    if (filtered.length === 0) {
-        results.innerHTML = "<p>No books found.</p>";
+    if (!query) {
+        suggestions.innerHTML = "";
         return;
     }
 
-    filtered.forEach(book => {
+    const filtered = searchBooks.filter(book =>
+        book.title.toLowerCase().includes(query) ||
+        book.author.toLowerCase().includes(query) ||
+        book.genre.toLowerCase().includes(query)
+    );
 
-        const div = document.createElement("div");
+    renderSuggestions(filtered, query);
+});
 
-        div.classList.add("result-item");
 
-        div.innerHTML = `
-            <img src="../${book.image}" class="search-book-image">
+// SEARCH BUTTON → GO TO NEW PAGE
+searchBtn.addEventListener("click", () => {
 
-            <div class="search-book-info">
+    const query = searchInput.value.trim();
 
-                <h2>${highlightText(book.title)}</h2>
+    if (!query) return;
 
-                <p><strong>Author:</strong> ${book.author}</p>
-                <p><strong>Genre:</strong> ${book.genre}</p>
-                <p><strong>Price:</strong> $${book.price}</p>
+    window.location.href =
+            `${resultsPath}?q=${encodeURIComponent(query)}`;
 
-            </div>
-        `;
+    suggestions.innerHTML = "";
+});
 
-        div.addEventListener("click", () => {
+
+// RENDER SUGGESTIONS
+function renderSuggestions(data, query) {
+
+    suggestions.innerHTML = "";
+
+    data.slice(0, 5).forEach(book => {
+
+        const li = document.createElement("li");
+
+        li.innerHTML = highlightText(book.title, query);
+
+        li.addEventListener("click", () => {
+
             window.location.href =
-                `../pages/productDetail.html?id=${book.id}`;
+                `${resultsPath}?q=${encodeURIComponent(book.title)}`;
+
         });
 
-        results.appendChild(div);
+        suggestions.appendChild(li);
     });
 }
 
 
-// HIGHLIGHT
-function highlightText(text) {
+// HIGHLIGHT MATCHES
+function highlightText(text, query) {
 
     if (!query) return text;
 
@@ -77,3 +92,4 @@ function highlightText(text) {
 
     return text.replace(regex, "<mark>$1</mark>");
 }
+

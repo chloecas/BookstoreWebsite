@@ -6,6 +6,8 @@
     <title>Browse Products</title>
     <link href="../stylesheet/baseStyle.css" rel="stylesheet" type="text/css">
     <link href="../stylesheet/aboutStyle.css" rel="stylesheet" type="text/css">
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../javascript/search.js" defer></script>
 
 </head>
 
@@ -33,8 +35,11 @@
         <ul>
             <li><a href="about.html">About</a></li>
             <li><a href="products.html">Products</a></li>
-            <li><input type="text" placeholder="Search...">
-                <button style="border: 1px solid white;" type="button">Enter</button>
+           <li class="searchBar">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button style="border: 1px solid white;" type="button" id="searchButton">Enter</button>
+
+                <ul id="suggestions"></ul>
             </li>
         </ul>
     </nav>

@@ -7,6 +7,7 @@
     <link href="../stylesheet/baseStyle.css" rel="stylesheet" type="text/css">
     <link href="../stylesheet/searchStyle.css" rel="stylesheet" type="text/css">
     <script src="../javascript/search.js" defer></script>
+    <script src="../javascript/searchResults.js" defer></script>
 </head>
 <body>
      <header>
@@ -16,7 +17,7 @@
                 <figcaption>Access Account</figcaption>
             </figure>
         </button>
-        <a href="home.html" class="header-click"></a>
+        <a href="../home.html" class="header-click"></a>
         <button type="button" id="cart">
             <figure>
                 <a href="../pages/shoppingCart.html"><img class="icon" src="../img/CartLogo.png" alt="Checkout"></a>
@@ -28,6 +29,12 @@
         <ul>
             <li><a href="../pages/about.html">About</a></li>
             <li><a href="../pages/products.html">Products</a></li>
+            <li class="searchBar">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button style="border: 1px solid white;" type="button" id="searchButton">Enter</button>
+
+                <ul id="suggestions"></ul>
+            </li>
         </ul>
     </nav>
 
@@ -41,10 +48,10 @@
             <div class="footer-container">
                 <ul id="footerList">
                     <li>
-                        <a href="pages/about.html">About</a>
+                        <a href="about.html">About</a>
                     </li>
                     <li>
-                        <a href="pages/contact.html">Contact</a>
+                        <a href="contact.html">Contact</a>
                     </li>
                     <li>
                         <div class="newsletter">

@@ -160,3 +160,4 @@ function addToCart(item, quantity) {
 
     localStorage.setItem("cart", JSON.stringify(cart));
 }
+

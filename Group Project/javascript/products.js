@@ -16,7 +16,7 @@ products.forEach(item => {
 
     card.innerHTML = `
     <a href="../pages/productDetail.html?id=${item.id}">
-    <img src="../${item.image}" alt="${item.title}" class="cardImg">
+    <img src="../${item.image}" alt="${item.title}" class="cardImg" alt="${item.title}+ cover">
     </a>
     <div class="cardContent">
         <h3>${item.title}</h3>
@@ -105,7 +105,6 @@ function addToCart(item, quantity) {
 
     localStorage.setItem("cart", JSON.stringify(cart));
 }
-
 
 
 
