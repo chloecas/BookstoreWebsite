@@ -1,11 +1,6 @@
-/**
- * login.js
- * Handles login form: validation, reqres.in API auth, token cookie storage.
- * Only redirects away if authToken cookie exists AND is non-empty.
- */
 
 const API_URL = "https://reqres.in/api/login";
-const API_KEY = "pub_2a9e5c8ccafb603e3dd6510529c71176f3b7c3e19221b9f3c6f2ae36651c6ff5";
+const API_KEY = "reqres_b7f9dbfefb254688a54ff7535c6565d2";
 
 // ─── Cookie Helpers ────────────────────────────────────────────────────────────
 
@@ -89,7 +84,7 @@ async function loginRequest(email, password) {
     },
     // reqres.in only accepts their test credentials — we send those
     // but store the user's real email in cookies
-    body: JSON.stringify({ email: "eve.holt@reqres.in", password: "cityslicka" }),
+    body: JSON.stringify({"email": "eve.holt@reqres.in", "password": "cityslicka"}),
   });
 
   const data = await response.json();

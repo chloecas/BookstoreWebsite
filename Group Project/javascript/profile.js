@@ -1,15 +1,6 @@
-/**
- * profile.js
- * - Auth guard: redirects to login if no token cookie
- * - Fetches user data from reqres.in GET /api/users/{id}
- * - Displays static API data (avatar, name, email, id)
- * - Loads editable fields (name, email) from cookies
- * - Allows password change with validation (saved to cookie)
- * - Logout clears all cookies and redirects to login
- */
 
 const API_BASE    = "https://reqres.in/api/users";
-const API_KEY     = "pub_2a9e5c8ccafb603e3dd6510529c71176f3b7c3e19221b9f3c6f2ae36651c6ff5"; // ← paste your reqres.in key here
+const API_KEY     = "reqres_b7f9dbfefb254688a54ff7535c6565d2"; // reqres.in key here
 const FALLBACK_ID = 2; // default reqres.in user if no userId cookie
 
 // ─── Cookie Helpers ────────────────────────────────────────────────────────────
@@ -58,19 +49,10 @@ async function fetchUserFromAPI(userId) {
 // ─── UI: Static API Panel ──────────────────────────────────────────────────────
 
 function renderAPIData(user) {
-  // Avatar and ID from API
-  document.getElementById("profileAvatar").src     = user.avatar;
-  document.getElementById("apiUserId").textContent = user.id;
-
-  // Real user data from cookies
-  const cookieName  = getCookie("userName");
-  const cookieEmail = getCookie("userEmail");
-
-  document.getElementById("apiUserEmail").textContent = cookieEmail || user.email;
-
-  const nameParts = (cookieName || `${user.first_name} ${user.last_name}`).split(" ");
-  document.getElementById("apiFirstName").textContent = nameParts[0] || user.first_name;
-  document.getElementById("apiLastName").textContent  = nameParts.slice(1).join(" ") || user.last_name;
+  document.getElementById("profileAvatar").src        = user.avatar;
+  document.getElementById("apiUserId").textContent    = user.id;
+  document.getElementById("apiUserEmail").textContent = getCookie("userEmail") || user.email;
+  document.getElementById("apiFullName").textContent  = getCookie("userName")  || user.first_name;
 }
 
 function setAPIStatus(message, type = "info") {
@@ -83,9 +65,8 @@ function setAPIStatus(message, type = "info") {
 // ─── UI: Editable Fields ───────────────────────────────────────────────────────
 
 function loadEditableFields(apiUser) {
-  document.getElementById("editName").value  = getCookie("userName")  || `${apiUser.first_name} ${apiUser.last_name}`;
-  document.getElementById("editEmail").value = getCookie("userEmail") || apiUser.email;
-  // Password fields are never pre-filled for security
+  document.getElementById("editName").value            = getCookie("userName")  || apiUser.first_name || "";
+  document.getElementById("editEmail").value           = getCookie("userEmail") || apiUser.email      || "";
   document.getElementById("editPassword").value        = "";
   document.getElementById("editConfirmPassword").value = "";
 }

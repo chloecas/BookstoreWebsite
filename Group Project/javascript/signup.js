@@ -1,12 +1,4 @@
-/**
- * signup.js
- * Handles sign-up form: validation, reqres.in register API, token cookie storage,
- * and redirect to products page on success.
- *
- * reqres.in only accepts: george.bluth@reqres.in (or any listed user email)
- * For register, it only accepts: eve.holt@reqres.in / pistol
- * Any unlisted email returns { "error": "Note: Only defined users succeed registration" }
- */
+
 
 const REGISTER_API_URL = "https://reqres.in/api/register";
 
@@ -167,9 +159,9 @@ async function registerRequest(email, password) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "x-api-key": "pub_2a9e5c8ccafb603e3dd6510529c71176f3b7c3e19221b9f3c6f2ae36651c6ff5"
+      "x-api-key": "reqres_b7f9dbfefb254688a54ff7535c6565d2"
     },
-    body: JSON.stringify({ email: "eve.holt@reqres.in", password: "pistol" }),
+    body: JSON.stringify({"email": "eve.holt@reqres.in", "password": "pistol"}),
   });
 
   const data = await response.json();
