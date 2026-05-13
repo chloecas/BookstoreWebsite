@@ -24,12 +24,14 @@ fetch("../productList.json")
 // RENDER RESULTS
 function renderResults() {
 
-    const filtered = books.filter(book =>
-        book.title.toLowerCase().includes(query) ||
-        book.author.toLowerCase().includes(query) ||
-        book.genre.toLowerCase().includes(query) ||
-        book.description.toLowerCase().includes(query)
-    );
+    const filtered = books
+  .filter(book => book.title.toLowerCase().includes(query))
+  .sort((a, b) => {
+    const aTitle = a.title.toLowerCase();
+    const bTitle = b.title.toLowerCase();
+
+    return aTitle.indexOf(query) - bTitle.indexOf(query);
+  });
 
     if (filtered.length === 0) {
         results.innerHTML = "<p>No books found.</p>";
@@ -43,7 +45,7 @@ function renderResults() {
         div.classList.add("result-item");
 
         div.innerHTML = `
-            <img src="../img/${book.image}" class="search-book-image">
+            <img src="../${book.image}" class="search-book-image">
 
             <div class="search-book-info">
 

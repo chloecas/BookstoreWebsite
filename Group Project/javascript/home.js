@@ -78,6 +78,7 @@ $(document).ready(function () {
             ${genre.info}
           </div>
         </div>
+        
       `;
 
       container.append(category);
@@ -85,6 +86,7 @@ $(document).ready(function () {
   });
 });
 
+/*---------------------------------- Search bar logic ----------------------------------*/
 const searchInput = document.getElementById("searchInput");
 const searchBtn = document.getElementById("searchButton");
 const suggestions = document.getElementById("suggestions");
