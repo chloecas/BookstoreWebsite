@@ -3,6 +3,14 @@ const province = document.getElementById('province');
 const postal = document.getElementById('postal');
 const provinceSelect = document.getElementById('provinceSelect');
 
+const nameReg = /^[A-Z](?:[a-z]|-){2,19}$/;
+const phoneReg = /^(?:\d[- ]?){9}\d$/;
+const emailReg = /^[a-zA-Z0-9][a-zA-Z0-9.-]+@[a-zA-Z]+\.(?:com|ca|org|net)$/;
+
+const zipReg = /^\d{5}(?:-\d{4})?$/;
+const postalReg = /^[A-Z]\d[A-Z] \d[A-Z]\d$/;
+const postReg = /^\d{4}$/;
+
 const regions = {
     Canada: [
         "Alberta",
@@ -111,7 +119,7 @@ function loadSummary() {
 
                 <div class="subtotal">$${subtotal.toFixed(2)}</div> 
             </div>
-            <input type="button" value="Place Order" id="checkoutButton" onclick="placeOrder()"> 
+            
         `;
     });
 
@@ -168,8 +176,69 @@ function loadSummary() {
 }
 
 function placeOrder() {
-    
+    const name = document.getElementById('fname').value;
+    const name2 = document.getElementById('lname').value;
 
+    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('email').value;
+
+    const code = document.getElementById('code').value;
+
+    if(validateName(name) &&
+        validateName(name2) &&
+        validatePhone(phone) &&
+        validateEmail(email) &&
+        validatePostal(code)) {
+            window.location.href="../pages/orderConfirmation.html";
+        } else {
+            window.location.href="../pages/error.html";
+        }
+}
+
+function validateName(name) {
+    if(name.match(nameReg)) {
+        return true;
+    }
+    alert("Invalid name format!");
+    return false;
+}
+
+function validatePhone(phone) {
+    if(phone.match(phoneReg)) {
+        return true;
+    }
+    alert("Invalid phone number format! Only accepts 10 digits with a space or hyphen.");
+    return false;
+}
+
+function validateEmail(email) {
+    if(email.match(emailReg)){
+        return true;
+    }
+    alert("Invalid email format!");
+    return false;
+}
+
+function validatePostal(code) {
+    if(postal.textContent === 'ZIP Code') {
+        if(code.match(zipReg)){
+            return true;
+        }
+        alert("Invalid ZIP Code!");
+
+    } else if(postal.textContent === 'Postal Code') {
+        if(code.match(postalReg)) {
+            return true;
+        }
+        alert("Invalid Postal Code!");
+
+    } else {
+        if(code.match(postReg)){
+            return true;
+        }
+        alert("Invalid Postcode!");
+    }
+    return false;
 }
 
 loadSummary();

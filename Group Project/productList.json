@@ -11,10 +11,10 @@
   {"id":"4", "title": "The Hobbit", "author": "J.R.R. Tolkien", "release_year": 1937, "genre": "Fantasy", "price": 19.50, "image":"img/hobbit.jpg",
   "description":"Bilbo Baggins is a hobbit who enjoys a comfortable, unambitious life, rarely traveling any farther than his pantry or cellar. But his contentment is disturbed when the wizard Gandalf and a company of dwarves arrive on his doorstep one day to whisk him away on an adventure. They have launched a plot to raid the treasure hoard guarded by Smaug the Magnificent, a large and very dangerous dragon. Bilbo reluctantly joins their quest, unaware that on his journey to the Lonely Mountain he will encounter both a magic ring and a frightening creature known as Gollum."},
   
-  {"id":"5", "title": "The Catcher in the Rye", "author": "J.D. Salinger", "release_year": 1951, "genre": "Fiction", "price": 17.25, "image":"img/mockingbird.jpg",
+  {"id":"5", "title": "The Catcher in the Rye", "author": "J.D. Salinger", "release_year": 1951, "genre": "Fiction", "price": 17.25, "image":"img/catcher.jpg",
   "description":"The hero-narrator of The Catcher in the Rye is an ancient child of sixteen, a native New Yorker named Holden Caulfield. Through circumstances that tend to preclude adult, secondhand description, he leaves his prep school in Pennsylvania and goes underground in New York City for three days, grappling with feelings of loneliness, grief, and alienation. His search for something genuine in a world that feels insincere and superficial remains urgent and unmistakably modern."},
   
-  {"id":"6", "title": "Pride and Prejudice", "author": "Jane Austen", "release_year": 1813, "genre": "Romance", "price": 14.75,"image":"img/catcher.jpg",
+  {"id":"6", "title": "Pride and Prejudice", "author": "Jane Austen", "release_year": 1813, "genre": "Romance", "price": 14.75,"image":"img/pride.jpg",
   "description":"With the arrival of eligible young men in their neighbourhood, the lives of Mr. and Mrs. Bennet and their five daughters are turned inside out and upside down. Pride encounters prejudice, upward-mobility confronts social disdain, and quick-wittedness challenges sagacity. Misconceptions and hasty judgements bring heartache and scandal, but eventually lead to true understanding, self-knowledge, and love."},
   
   {"id":"7", "title": "The Da Vinci Code", "author": "Dan Brown", "release_year": 2003, "genre": "Thriller", "price": 20.00, "image":"img/davinci.jpg",

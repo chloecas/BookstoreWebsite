@@ -7,7 +7,6 @@
     <link href="../stylesheet/baseStyle.css" rel="stylesheet" type="text/css">
     <link href="../stylesheet/checkoutStyle.css" rel="stylesheet" type="text/css">
     
-    <!-- <script src="../javascript/shoppingCart.js" defer></script> -->
     <script src="../javascript/checkout.js" defer></script>
 </head>
 <body>
@@ -25,9 +24,6 @@
         <ul>
             <li><a href="about.html">About</a></li>
             <li><a href="products.html">Products</a></li>
-            <li><input type="text" placeholder="Search...">
-                <button style="border: 1px solid white;" type="button">Enter</button>
-            </li>
         </ul>
     </nav>
 
@@ -72,7 +68,7 @@
 
 
                     <label id="postal" for="postal">Postal Code</label>
-                    <input type="text" id="postal" name="postal">
+                    <input type="text" id="code" name="postal">
                 </form>
             </div>
         </div>
@@ -99,8 +95,10 @@
             </div>
             
             <div id="Summary"></div>
-            <div id="cartItems"></div> 
-            
+            <div id="orderSummary">
+                <div id="cartItems"></div> 
+                <input type="button" value="Place Order" id="checkoutButton" onclick="placeOrder()">
+            </div>
         </div>
     </div>
 

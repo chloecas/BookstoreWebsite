@@ -138,18 +138,23 @@ h2 {
 } 
 
 #checkoutButton {
-    margin-top: 20px;
-    width: 100%;
     padding: 10px;
+    width:100%;
     background: darkolivegreen;
     color: #061f06;
     border-radius: 8px;
     font-size: 1rem;
+    margin-left: 20px;
 }
 
 .deliveryRow {
     padding: 10px;
     border-bottom: 1px solid #ccc;
+}
+
+#orderSummary {
+    display: flex;
+    flex-direction: column;
 }
 
 

@@ -1,0 +1,17 @@
+.main {
+    text-align:center;
+    align-content: center;
+}
+
+h1 {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color:rgb(73, 53, 41);
+}
+
+a {
+    color:darkolivegreen;
+}
+
+a:hover {
+    color:black;
+}
