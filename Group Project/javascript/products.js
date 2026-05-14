@@ -1,26 +1,17 @@
 //__________________________________cookie methods_________________________________
 function getCookie(name) {
-
     const cookies =
         document.cookie.split("; ");
 
     for (let cookie of cookies) {
-
-        const parts =
-            cookie.split("=");
-
-        const cookieName =
-            parts[0];
-
-        const cookieValue =
-            parts[1];
+        const parts = cookie.split("=");
+        const cookieName = parts[0];
+        const cookieValue = parts[1];
 
         if (cookieName === name) {
-
             return decodeURIComponent(
                 cookieValue
             );
-
         }
     }
 
@@ -42,16 +33,12 @@ function setCookie(name, value, days) {
         ";path=/";
 }
 function getWishlist(key) {
-
     const cookieValue =
         getCookie(key);
 
     if (!cookieValue) {
-
         return [];
-
     }
-
     return JSON.parse(
         cookieValue
     );
@@ -200,7 +187,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         .addEventListener('input', (e) => {
             document.getElementById('priceValue').textContent = e.target.value;
             applyFilter();
-        });
+    });
+
 });
 
 function addToCart(item, quantity) {

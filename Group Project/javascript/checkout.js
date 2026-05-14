@@ -77,7 +77,9 @@ function changeCountry() {
 }
 
 function loadSummary() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+   const order = calculateOrder("","","","");
+
+   let cart = order.items;
     let cartItems = document.getElementById("cartItems");
     let cartSummary = document.getElementById("Summary");
 
@@ -93,18 +95,11 @@ function loadSummary() {
         return;
     }
 
-    //when not empty yay
-    let total = 0;
-    let totalItems = 0;
+    cartItems.innerHTML= "";
 
-    cartItems.innerHTML = "";
-
-    cart.forEach((item, index) => {
-        let subtotal = item.price * item.quantity;
-        total += subtotal;
-        totalItems += item.quantity;
-
-        cartItems.innerHTML += `
+    cart.forEach(item => {
+        let itemSubtotal = item.price * item.quantity;
+         cartItems.innerHTML += `
             <div class="row">
                 <img src="../${item.image}">
                 
@@ -117,63 +112,49 @@ function loadSummary() {
                     <span>Qty: ${item.quantity}</span>
                 </div>
 
-                <div class="subtotal">$${subtotal.toFixed(2)}</div> 
+                <div class="subtotal">$${itemSubtotal.toFixed(2)}</div> 
             </div>
             
         `;
     });
 
-    let regFee = total >= 25 ? 0 : 4.99;
-    let priorityFee = 12.99;
-
-    document.getElementById('regularPrice').textContent =
-        regFee === 0 ? "FREE": `$${regFee.toFixed(2)}`;
-
-    let selectedDel = document.querySelector('input[name="delivery"]:checked').value;
-
-    let delFee = selectedDel === "priority" ? priorityFee : regFee;
-
-
-    let gst = total * 0.05;
-    let qst = total * 0.09975;
-    let finalTotal = total + delFee + gst + qst;
+    document.getElementById('regularPrice').textContent = 
+        order.deliveryFee === 0 ? "FREE" : `$${order.deliveryFee.toFixed(2)}`;
 
     cartSummary.innerHTML = `
         <h2>Order Summary</h2>
 
         <div class="Srow">
             <span>Items</span>
-            <span>${totalItems}</span>
+            <span>${order.totalItems}</span>
         </div>
 
         <div class="Srow">
             <span>Subtotal</span>
-            <span>$${total.toFixed(2)}</span>
+            <span>$${order.subtotal.toFixed(2)}</span>
         </div>
 
         <div class="Srow">
             <span>Delivery</span>
-            <span>
-                ${delFee === 0 ? "FREE" : `$${delFee.toFixed(2)}`}
-            </span>
+            <span> ${order.deliveryFee === 0 ? "FREE" : `$${order.deliveryFee.toFixed(2)}`}</span>
         </div>
 
         <div class="Srow">
             <span>GST (5%)</span>
-            <span>$${gst.toFixed(2)}</span>
+            <span>$${order.gst.toFixed(2)}</span>
         </div>
 
         <div class="Srow">
             <span>QST (9.975%)</span>
-            <span>$${qst.toFixed(2)}</span>
+            <span>$${order.qst.toFixed(2)}</span>
         </div>
 
         <div class="total">
             <span>Total:</span>
-            <span>$${finalTotal.toFixed(2)}</span>
+            <span>$${order.finalTotal.toFixed(2)}</span>
         </div>
     `;
-}
+    }
 
 function placeOrder() {
     const name = document.getElementById('fname').value;
@@ -189,10 +170,55 @@ function placeOrder() {
         validatePhone(phone) &&
         validateEmail(email) &&
         validatePostal(code)) {
+            
+            const order = calculateOrder(name, name2, email, phone);
+            localStorage.setItem("orderData", JSON.stringify(order));
+            localStorage.removeItem("cart");
             window.location.href="../pages/orderConfirmation.html";
+
         } else {
             window.location.href="../pages/error.html";
         }
+}
+
+function calculateOrder(name, name2, email, phone) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let subtotal = 0;
+        let totalItems = 0;
+
+            cart.forEach(item => {
+                subtotal += item.price * item.quantity;
+                totalItems += item.quantity;
+            });
+
+        let selectedDel = document.querySelector('input[name="delivery"]:checked').value;
+
+        //delivery is free over 25$ otherwise 4.99
+        let regFee = subtotal >= 25 ? 0 : 4.99;
+        let priorityFee = 12.99;
+        let deliveryFee = selectedDel === "priority" ? priorityFee : regFee;
+
+        let gst = subtotal * 0.05;
+        let qst = subtotal * 0.09975;
+
+        let orderNumber = "#" + Math.floor(Math.random() * 1000000);
+        let finalTotal = subtotal + deliveryFee + gst + qst;
+
+        const orderData = {
+            orderNumber,
+            customer: `${name} ${name2}`,
+            email,
+            phone,
+            items: cart,
+            totalItems,
+            subtotal,
+            deliveryFee,
+            gst,
+            qst,
+            finalTotal 
+        };
+
+    return orderData;
 }
 
 function validateName(name) {
