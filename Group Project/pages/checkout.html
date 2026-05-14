@@ -28,10 +28,12 @@
     </nav>
 
     <div class="main">
-        <div class="topRow">
-            <div class="submitForm" id="personalInfo">
-                <h2 class="title">Personal Information</h2>
-                <form>
+        <form id="checkoutForm">
+            
+            <div class="topRow">
+                <div class="submitForm" id="personalInfo">
+                    <h2 class="title">Personal Information</h2>
+                
                     <label for="fname">First Name</label>
                     <input type="text" id="fname" name="fname">
 
@@ -43,13 +45,13 @@
 
                     <label for="phone">Phone</label>
                     <input type="text" id="phone" name="phone">
-                </form>
+              
             </div>
 
                 
             <div class="submitForm" id="shipping">
                 <h2 class="title">Shipping</h2>
-                <form>
+                
                     <label for="address">Address</label>
                     <input type="text" id="address" name="address">
 
@@ -69,9 +71,10 @@
 
                     <label id="postal" for="postal">Postal Code</label>
                     <input type="text" id="code" name="postal">
-                </form>
+                </div>
             </div>
-        </div>
+            <button type="submit" id="checkoutButton" onclick="placeOrder()">Place Order</button>
+        </form>
 
         <div class="bottomRow">
             <div id="deliveryOptions">
@@ -97,7 +100,6 @@
             <div id="Summary"></div>
             <div id="orderSummary">
                 <div id="cartItems"></div> 
-                <input type="button" value="Place Order" id="checkoutButton" onclick="placeOrder()">
             </div>
         </div>
     </div>

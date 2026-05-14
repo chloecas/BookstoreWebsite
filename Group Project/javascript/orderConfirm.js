@@ -41,8 +41,8 @@ function loadOrderConfirmation() {
     summary.innerHTML = `
     <div class="pageSummary">
         <div class="confirmationHeader">
-            <h1>Thank You For Your Order!</h1>
-            <p>Order <strong>${orderData.orderNumber}</strong> confirmed </p>
+            <h1>Review Your Order!</h1>
+            <p>Order <strong>${orderData.orderNumber}</strong> processed </p>
             <span class="status">Processing</span>   
         </div>
 
@@ -51,6 +51,11 @@ function loadOrderConfirmation() {
                 <div class="card">
                     <h2>Items</h2>
                     ${itemsHTML}
+                </div>
+
+                <div class="panel">
+                    <a href="../home.html">← Back to home</a>
+                    <input type="button" value="Confirm Order" id="confirm" onclick="confirmed()">
                 </div>
             </div>
 
@@ -93,6 +98,11 @@ function loadOrderConfirmation() {
         </div>
     </div>
     `;
+}
+
+function confirmed() {
+    alert("Order Placed! Thank You!");
+    window.location.href="../home.html";
 }
 
 loadOrderConfirmation();

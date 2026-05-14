@@ -91,3 +91,16 @@ h2 {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+.panel {
+    margin: 10px;
+    text-align: center;
+}
+
+#confirm {
+    padding: 5px;
+    background: darkolivegreen;
+    color: #ffffff;
+    border-radius: 8px;
+    margin-left: 10px;
+}
+

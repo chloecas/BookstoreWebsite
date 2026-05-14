@@ -3,8 +3,12 @@
     width: 300px;
     margin: 0;
     background: rgba(130, 168, 130, 0.6);
-     position:relative;
+    position:relative;
     
+}
+
+.card:hover {
+  transform: translateY(-10px);
 }
 
 .price {

@@ -51,6 +51,12 @@ const regions = {
     ]
 };
 
+function getCookie(name) {
+  const key = encodeURIComponent(name) + "=";
+  const found = document.cookie.split("; ").find(c => c.startsWith(key));
+  return found ? decodeURIComponent(found.slice(key.length)) : null;
+}
+
 function changeCountry() {
     const country = countrySelect.value;
 
@@ -74,6 +80,20 @@ function changeCountry() {
         provinceSelect.appendChild(option);
     });
 
+}
+
+function requireCheckoutAuth() {
+  const token = getCookie("authToken");
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  if (!token) {
+    window.location.href = "../pages/login.html";
+    return;
+  }
+
+  if (cart.length === 0) {
+    window.location.href = "../pages/cart.html";
+  }
 }
 
 function loadSummary() {
@@ -156,30 +176,31 @@ function loadSummary() {
     `;
     }
 
-function placeOrder() {
+document.getElementById("checkoutForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // 🔥 STOPS AUTO REDIRECT
+
     const name = document.getElementById('fname').value;
     const name2 = document.getElementById('lname').value;
-
     const phone = document.getElementById('phone').value;
     const email = document.getElementById('email').value;
-
     const code = document.getElementById('code').value;
 
-    if(validateName(name) &&
+    if (
+        validateName(name) &&
         validateName(name2) &&
         validatePhone(phone) &&
         validateEmail(email) &&
-        validatePostal(code)) {
-            
-            const order = calculateOrder(name, name2, email, phone);
-            localStorage.setItem("orderData", JSON.stringify(order));
-            localStorage.removeItem("cart");
-            window.location.href="../pages/orderConfirmation.html";
+        validatePostal(code)
+    ) {
+        const order = calculateOrder(name, name2, email, phone);
+        localStorage.setItem("orderData", JSON.stringify(order));
+        localStorage.removeItem("cart");
 
-        } else {
-            window.location.href="../pages/error.html";
-        }
-}
+        window.location.href = "../pages/orderConfirmation.html";
+    } else {
+        alert("Please fix errors before continuing.");
+    }
+});
 
 function calculateOrder(name, name2, email, phone) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -267,11 +288,17 @@ function validatePostal(code) {
     return false;
 }
 
-loadSummary();
+document.addEventListener("DOMContentLoaded", () => {
+    requireCheckoutAuth();
 
-changeCountry();
+    loadSummary();
+    changeCountry();
 
-countrySelect.addEventListener("change", changeCountry);
-document.querySelectorAll('input[name="delivery"]').forEach(radio => {
-    radio.addEventListener("change", loadSummary);
+    countrySelect.addEventListener("change", changeCountry);
+    document.querySelectorAll('input[name="delivery"]').forEach(radio => {
+        radio.addEventListener("change", loadSummary);
+    });
 });
+
+
+
