@@ -1,9 +1,9 @@
 
 const API_BASE    = "https://reqres.in/api/users";
-const API_KEY     = "reqres_b7f9dbfefb254688a54ff7535c6565d2"; // reqres.in key here
+const API_KEY     = "reqres_b7f9dbfefb254688a54ff7535c6565d2"; // reqres.in key 
 const FALLBACK_ID = 2; // default reqres.in user if no userId cookie
 
-// ─── Cookie Helpers ────────────────────────────────────────────────────────────
+// ─── Cookie Helpers ───────────────────
 
 function setCookie(name, value, days = 7) {
   const expires = new Date(Date.now() + days * 864e5).toUTCString();
@@ -20,7 +20,7 @@ function deleteCookie(name) {
   document.cookie = `${encodeURIComponent(name)}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
 }
 
-// ─── Auth Guard ────────────────────────────────────────────────────────────────
+// ─── Auth Guard ────────────────
 
 function requireAuth() {
   if (!getCookie("authToken")) {
@@ -28,7 +28,7 @@ function requireAuth() {
   }
 }
 
-// ─── API ───────────────────────────────────────────────────────────────────────
+// ─── API ───────────────────────
 
 async function fetchUserFromAPI(userId) {
   const response = await fetch(`${API_BASE}/${userId}`, {
@@ -43,16 +43,15 @@ async function fetchUserFromAPI(userId) {
   }
 
   const data = await response.json();
-  return data.data; // reqres.in wraps user in { data: { ... } }
+  return data.data; 
 }
 
-// ─── UI: Static API Panel ──────────────────────────────────────────────────────
+// ─── UI: Static API Panel ───────────
 
 function renderAPIData(user) {
-  document.getElementById("profileAvatar").src        = user.avatar;
   document.getElementById("apiUserId").textContent    = user.id;
   document.getElementById("apiUserEmail").textContent = getCookie("userEmail") || user.email;
-  document.getElementById("apiFullName").textContent  = getCookie("userName")  || user.first_name;
+  document.getElementById("apiFullName").textContent  = getCookie("userName");
 }
 
 function setAPIStatus(message, type = "info") {
@@ -62,7 +61,7 @@ function setAPIStatus(message, type = "info") {
   el.style.display = message ? "block" : "none";
 }
 
-// ─── UI: Editable Fields ───────────────────────────────────────────────────────
+// ─── UI: Editable Fields ─────────────
 
 function loadEditableFields(apiUser) {
   document.getElementById("editName").value            = getCookie("userName")  || apiUser.first_name || "";
@@ -82,7 +81,7 @@ function setSaveStatus(message, type = "success") {
   }
 }
 
-// ─── Validation ────────────────────────────────────────────────────────────────
+// ─── Validation ───────────────────────
 
 function showError(id, message) {
   const el = document.getElementById(id);
@@ -127,7 +126,7 @@ function validateEditableFields(name, email, password, confirmPassword) {
   return valid;
 }
 
-// ─── Save Handler ──────────────────────────────────────────────────────────────
+// ─── Save Handler ─────────────────────────────
 
 function saveEditableFields() {
   clearErrors();
@@ -154,14 +153,14 @@ function saveEditableFields() {
   document.getElementById("editConfirmPassword").value = "";
 }
 
-// ─── Logout ────────────────────────────────────────────────────────────────────
+// ─── Logout ────────────────────────────────
 
 function logout() {
   ["authToken", "userEmail", "userName", "userId", "userPassword"].forEach(deleteCookie);
   window.location.href = "login.html";
 }
 
-// ─── Boot ──────────────────────────────────────────────────────────────────────
+// ─── Boot ───────────────────────────────────
 
 document.addEventListener("DOMContentLoaded", async () => {
   // 1. Redirect if not logged in
