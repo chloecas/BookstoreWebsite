@@ -3,12 +3,19 @@ const province = document.getElementById('province');
 const postal = document.getElementById('postal');
 const provinceSelect = document.getElementById('provinceSelect');
 
+//start with uppercase, contain only letters or -, 3-20 characters long
 const nameReg = /^[A-Z](?:[a-z]|-){2,19}$/;
+//contain exactly 10 digits with spaces or -
 const phoneReg = /^(?:\d[- ]?){9}\d$/;
+//first character upper/lowercase letter or digit, prefix contains only letters/digits/. / -. 
+//Followed by @ symbol, then only letters until domain. .com/.ca/.org/.net accepted only
 const emailReg = /^[a-zA-Z0-9][a-zA-Z0-9.-]+@[a-zA-Z]+\.(?:com|ca|org|net)$/;
 
+//US zip code. Exactly 5 digits but supports extension with - and 4 more digits
 const zipReg = /^\d{5}(?:-\d{4})?$/;
+//CA postal code. capital letter and digit repeating sequence with a space in between
 const postalReg = /^[A-Z]\d[A-Z] \d[A-Z]\d$/;
+//AUS postcode, exactly 4 digits
 const postReg = /^\d{4}$/;
 
 const regions = {
@@ -177,7 +184,7 @@ function loadSummary() {
     }
 
 document.getElementById("checkoutForm").addEventListener("submit", function (event) {
-    event.preventDefault(); // 🔥 STOPS AUTO REDIRECT
+    event.preventDefault(); 
 
     const name = document.getElementById('fname').value;
     const name2 = document.getElementById('lname').value;
