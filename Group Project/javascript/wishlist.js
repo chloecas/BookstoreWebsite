@@ -1,60 +1,46 @@
 //__________________________________cookie methods_________________________________
 function getCookie(name) {
-
-    const cookies =
-        document.cookie.split("; ");
+    const encodedName = encodeURIComponent(name) + "=";
+    const cookies = document.cookie.split("; ");
 
     for (let cookie of cookies) {
-
-        const parts =
-            cookie.split("=");
-
-        const cookieName =
-            parts[0];
-
-        const cookieValue =
-            parts[1];
-
-        if (cookieName === name) {
-
-            return decodeURIComponent(
-                cookieValue
-            );
-
+        if (cookie.startsWith(encodedName)) {
+            return decodeURIComponent(cookie.substring(encodedName.length));
         }
     }
 
     return "";
 }
+
 function setCookie(name, value, days) {
-
     const date = new Date();
-
-    date.setDate(
-        date.getDate() + days
-    );
+    date.setDate(date.getDate() + days);
 
     document.cookie =
-        name + "=" +
+        encodeURIComponent(name) + "=" +
         encodeURIComponent(value) +
-        ";expires=" +
-        date.toUTCString() +
+        ";expires=" + date.toUTCString() +
         ";path=/";
 }
-function getWishlist(key) {
 
-    const cookieValue =
-        getCookie(key);
+function getWishlistKey() {
+    const userId = getCookie("userEmail");
 
-    if (!cookieValue) {
-
-        return [];
-
+    if (!userId) {
+        return null;
     }
 
-    return JSON.parse(
-        cookieValue
-    );
+    return "wishlist_" + userId;
+}
+
+function getWishlist(key) {
+    const value = getCookie(key);
+
+    if (!value) {
+        return [];
+    }
+
+    return JSON.parse(value);
 }
 
 //__________________________________wishlist logic_________________________________
@@ -69,7 +55,7 @@ $(document).ready(function () {
         return;
     }
 
-    const wishlistKey = "wishlist_" + userId;
+    const wishlistKey = getWishlistKey();
     const wishlistIds = getWishlist(wishlistKey);
 
     if (wishlistIds.length === 0) {
@@ -119,7 +105,7 @@ function displayWishlist(books, wishlistKey) {
 
 $(document).on("click", ".remove-wishlist-btn", function () {
     const userId = getCookie("userEmail");
-    const wishlistKey = "wishlist_" + userId;
+    const wishlistKey = getWishlistKey();
 
     const bookId = $(this).data("id");
 
@@ -135,38 +121,4 @@ $(document).on("click", ".remove-wishlist-btn", function () {
     }
 });
 
-function setCookie(name, value, days) {
-    const date = new Date();
-    date.setDate(date.getDate() + days);
 
-    document.cookie =
-        name + "=" + encodeURIComponent(value) +
-        "; expires=" + date.toUTCString() +
-        "; path=/";
-}
-
-function getCookie(name) {
-    const cookies = document.cookie.split("; ");
-
-    for (let cookie of cookies) {
-        const parts = cookie.split("=");
-        const cookieName = parts[0];
-        const cookieValue = parts[1];
-
-        if (cookieName === name) {
-            return decodeURIComponent(cookieValue);
-        }
-    }
-
-    return "";
-}
-
-function getWishlist(key) {
-    const cookieValue = getCookie(key);
-
-    if (!cookieValue) {
-        return [];
-    }
-
-    return JSON.parse(cookieValue);
-}

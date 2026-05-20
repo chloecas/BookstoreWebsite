@@ -1,49 +1,48 @@
 //__________________________________cookie methods_________________________________
 function getCookie(name) {
-    const cookies =
-        document.cookie.split("; ");
+    const encodedName = encodeURIComponent(name) + "=";
+    const cookies = document.cookie.split("; ");
 
     for (let cookie of cookies) {
-        const parts = cookie.split("=");
-        const cookieName = parts[0];
-        const cookieValue = parts[1];
-
-        if (cookieName === name) {
-            return decodeURIComponent(
-                cookieValue
-            );
+        if (cookie.startsWith(encodedName)) {
+            return decodeURIComponent(cookie.substring(encodedName.length));
         }
     }
 
     return "";
 }
+
 function setCookie(name, value, days) {
-
     const date = new Date();
-
-    date.setDate(
-        date.getDate() + days
-    );
+    date.setDate(date.getDate() + days);
 
     document.cookie =
-        name + "=" +
+        encodeURIComponent(name) + "=" +
         encodeURIComponent(value) +
-        ";expires=" +
-        date.toUTCString() +
+        ";expires=" + date.toUTCString() +
         ";path=/";
 }
-function getWishlist(key) {
-    const cookieValue =
-        getCookie(key);
 
-    if (!cookieValue) {
-        return [];
+function getWishlistKey() {
+    const userId = getCookie("userEmail");
+
+    if (!userId) {
+        return null;
     }
-    return JSON.parse(
-        cookieValue
-    );
+
+    return "wishlist_" + userId;
 }
 
+function getWishlist(key) {
+    const value = getCookie(key);
+
+    if (!value) {
+        return [];
+    }
+
+    return JSON.parse(value);
+}
+//__________________________________Product Display Logic_________________________________
 let allProducts = [];
 
 async function displayProducts() {
@@ -58,13 +57,10 @@ function createProductCards(products) {
 
     products.forEach(item => {
         const userId = getCookie("userEmail");
-        const wishlistKey = "wishlist_" + userId;
-        const wishlist = getWishlist(wishlistKey).map(Number);
-        const isInWishlist = wishlist
-            .map(id => String(id).trim())
-            .includes(String(item.id).trim());
+        const wishlistKey = getWishlistKey();
+        const wishlist = wishlistKey ? getWishlist(wishlistKey).map(Number) : [];
+        const isInWishlist = wishlist.includes(Number(item.id));
         const card = document.createElement('div');
-
 
         card.classList.add('card');
 
@@ -102,9 +98,9 @@ function createProductCards(products) {
         ${isInWishlist ? "❤️" : "🩶"}
         </button>
         `;
-
+//Loading hearts
         const qtyInput = card.querySelector('#quantity');
-        card.querySelector('button')
+        card.querySelector('.cardContent button')
             .addEventListener('click', () => {
                 const quantity = parseInt(qtyInput.value) || 1;
                 addToCart(item, quantity);
@@ -115,32 +111,33 @@ function createProductCards(products) {
 }
 
 $(document).on("click", ".wishlist-btn", function () {
-    const bookId = $(this).data("id");
+    const bookId = Number($(this).data("id"));
     const bookTitle = $(this).data("title");
-    const userId = getCookie("userEmail");
 
+    const wishlistKey = getWishlistKey();
 
-    if (!userId) {
+    if (!wishlistKey) {
         alert("Please log in first.");
         window.location.href = "../pages/login.html";
         return;
     }
 
-    const wishlistKey = "wishlist_" + userId;
-    let wishlist = getWishlist(wishlistKey);
+    let wishlist = getWishlist(wishlistKey).map(Number);
 
-    if (!wishlist.includes(bookId)) {
-        wishlist.push(bookId);
-        setCookie(wishlistKey, JSON.stringify(wishlist), 7);
-
-        $(this).html("❤️").addClass("active-heart");
-        alert(bookTitle + " added to wishlist!");
-    } else {
+    if (wishlist.includes(bookId)) {
         wishlist = wishlist.filter(id => id !== bookId);
+
         setCookie(wishlistKey, JSON.stringify(wishlist), 7);
 
         $(this).html("🩶").removeClass("active-heart");
         alert(bookTitle + " removed from wishlist.");
+    } else {
+        wishlist.push(bookId);
+
+        setCookie(wishlistKey, JSON.stringify(wishlist), 7);
+
+        $(this).html("❤️").addClass("active-heart");
+        alert(bookTitle + " added to wishlist!");
     }
 });
 
