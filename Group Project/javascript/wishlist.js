@@ -107,9 +107,9 @@ $(document).on("click", ".remove-wishlist-btn", function () {
     const userId = getCookie("userEmail");
     const wishlistKey = getWishlistKey();
 
-    const bookId = $(this).data("id");
+    const bookId = Number($(this).data("id"));
 
-    let wishlist = getWishlist(wishlistKey);
+    let wishlist = getWishlist(wishlistKey).map(Number);
     wishlist = wishlist.filter(id => id !== bookId);
 
     setCookie(wishlistKey, JSON.stringify(wishlist), 7);
